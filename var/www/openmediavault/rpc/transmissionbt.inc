@@ -56,8 +56,8 @@ class TransmissionBTRpc extends OMVRpc {
 					"utp-enabled":{"type":"boolean"},
 					"message-level":{"type":"integer","enum":[0,1,2,3]},
 					"cache-size-mb":{"type":"integer"},
-                                            "script-torrent-done-enabled"{"type":"boolean"},
-                                            "script-torrent-done-filename":{"type":"string"}
+					"script-torrent-done-enabled"{"type":"boolean"},
+					"script-torrent-done-filename":{"type":"string"}
 				}
 			}'),
 			"setLocationsAndFiles" => array('{
@@ -214,6 +214,8 @@ class TransmissionBTRpc extends OMVRpc {
 		$object['utp-enabled'] = boolval($object['utp-enabled']);
 		$object['message-level'] = intval($object['message-level']);
 		$object['cache-size-mb'] = intval($object['cache-size-mb']);
+
+		$object['script-torrent-done-enabled'] = boolval($object['script-torrent-done-enabled']);
 		return $object;
 	}
 
@@ -262,8 +264,8 @@ class TransmissionBTRpc extends OMVRpc {
 			"utp-enabled" => array_boolval($data,'utp-enabled'),
 			"message-level" => $data['message-level'],
 			"cache-size-mb" => $data['cache-size-mb'],
-                           "script-torrent-done-enabled" => array_boolval($data, 'script-torrent-done-enabled'),
-                           "script-torrent-done-filename" => $data['script-torrent-done-filename'],
+		  "script-torrent-done-enabled" => array_boolval($data, 'script-torrent-done-enabled'),
+		  "script-torrent-done-filename" => $data['script-torrent-done-filename'],
 		);
 		// Set configuration object
 		if (FALSE === $xmlConfig->replace($xpath, $object)) {

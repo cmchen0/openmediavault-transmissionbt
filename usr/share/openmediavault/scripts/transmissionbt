@@ -199,6 +199,12 @@ if [ 1 = ${enable} -a  1 = ${watch_dir_enable} ]; then
 	mkdir -p ${watch_dir_full}
 fi
 
+script_torrent_done_enabled=$(omv_config_get "//services/transmissionbt/script-torrent-done-enabled")
+if [ 1 = ${enable} -a  1 = ${watch_dir_enable} ]; then
+	script_torrent_done_filename=$(omv_config_get "//services/transmissionbt/script-torrent-done-filename")
+	chmod +x ${script_torrent_done_filename}
+fi
+
 # Create transmission cron file
 blocklistsyncenabled=$(omv_config_get "//services/transmissionbt/blocklistsyncenabled")
 blocklistsyncfrequency=$(omv_config_get "//services/transmissionbt/blocklistsyncfrequency")
