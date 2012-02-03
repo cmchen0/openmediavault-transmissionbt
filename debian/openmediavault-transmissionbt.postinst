@@ -224,11 +224,11 @@ case "$1" in
 		fi
 
 		if ! omv_config_exists "//services/transmissionbt/script-torrent-done-enabled"; then
-			omv_config_add_element "//services/transmissionbt" "script-torrent-done-enabled" "4"
+			omv_config_add_element "//services/transmissionbt" "script-torrent-done-enabled" "0"
 		fi
 
 		if ! omv_config_exists "//services/transmissionbt/script-torrent-done-filename"; then
-			omv_config_add_element "//services/transmissionbt" "script-torrent-done-filename" "4"
+			omv_config_add_element "//services/transmissionbt" "script-torrent-done-filename" ""
 		fi
 
 		########################################################################

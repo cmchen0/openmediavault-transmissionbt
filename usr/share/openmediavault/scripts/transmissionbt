@@ -200,7 +200,7 @@ if [ 1 = ${enable} -a  1 = ${watch_dir_enable} ]; then
 fi
 
 script_torrent_done_enabled=$(omv_config_get "//services/transmissionbt/script-torrent-done-enabled")
-if [ 1 = ${enable} -a  1 = ${watch_dir_enable} ]; then
+if [ 1 = ${enable} -a  1 = ${script_torrent_done_enabled} ]; then
 	script_torrent_done_filename=$(omv_config_get "//services/transmissionbt/script-torrent-done-filename")
 	chmod +x ${script_torrent_done_filename}
 fi
