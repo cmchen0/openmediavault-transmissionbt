@@ -39,7 +39,6 @@ class TransmissionBTRpc extends OMVRpc {
 				"type":"object",
 				"properties":{
 					"enable":{"type":"boolean"},
-					"sharedfolderref":{' . $GLOBALS['OMV_JSONSCHEMA_UUID_NONE'] . '},
 					"pexenabled":{"type":"boolean"},
 					"dhtenabled":{"type":"boolean"},
 					"encryption":{"type":"integer","enum":[0,1,2]},
@@ -68,11 +67,14 @@ class TransmissionBTRpc extends OMVRpc {
 				'{
 				"type":"object",
 				"properties":{
+					"download-sharedfolderref":{' . $GLOBALS['OMV_JSONSCHEMA_UUID_NONE'] . '},
 					"download-dir":{"type":"string"},
-					"incomplete-dir":{"type":"string"},
 					"incomplete-dir-enabled":{"type":"boolean"},
-					"watch-dir":{"type":"string"},
+					"incomplete-sharedfolderref":{' . $GLOBALS['OMV_JSONSCHEMA_UUID_NONE'] . '},
+					"incomplete-dir":{"type":"string"},
 					"watch-dir-enabled":{"type":"boolean"},
+					"watch-sharedfolderref":{' . $GLOBALS['OMV_JSONSCHEMA_UUID_NONE'] . '},
+					"watch-dir":{"type":"string"},
 					"preallocation":{"type":"integer","enum":[0,1,2]},
 					"rename-partial-files":{"type":"boolean"},
 					"start-added-torrents":{"type":"boolean"},
