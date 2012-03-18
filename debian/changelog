@@ -1,4 +1,4 @@
-openmediavault-transmissionbt (0.2.9.1) stable; urgency=high
+openmediavault-transmissionbt (0.2.9.2) stable; urgency=high
 
   * Github Issue #30 - Error with jobs tab and autorefresh after update to 0.2.8.3
 
