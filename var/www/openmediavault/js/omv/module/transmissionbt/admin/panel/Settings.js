@@ -54,13 +54,6 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.SettingsPanel, OMV.FormPanel
 					scope: this
 				}
 			},{
-				xtype: "sharedfoldercombo",
-				name: "sharedfolderref",
-				hiddenName: "sharedfolderref",
-				fieldLabel: "Shared folder",
-				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Make sure the group 'debian-transmission' has read/write access to the shared folder."
-			},{
 				xtype: "checkbox",
 				name: "pexenabled",
 				fieldLabel: "Peer exchange",

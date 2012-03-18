@@ -231,6 +231,101 @@ case "$1" in
 			omv_config_add_element "//services/transmissionbt" "script-torrent-done-filename" ""
 		fi
 
+		if ! omv_config_exists "//services/transmissionbt/modules/locationsandfiles/paths"; then
+    	echo "Updating configuration"
+    	echo "# Add locationsandfiles/paths section"
+    	omv_config_add_element "//services/transmissionbt/modules/locationsandfiles" "paths" "" true
+
+    	object=""
+    	echo "# Add locationsandfiles/paths/download section"
+    	if omv_config_exists "//services/transmissionbt/sharedfolderref"; then
+    		echo "# Get sharedfolderref from old section"
+    		sharedfolderref=`omv_config_get "//services/transmissionbt/sharedfolderref"`
+    		object="${object}<sharedfolderref>${sharedfolderref}</sharedfolderref>"
+    	else
+    		object="${object}<sharedfolderref/>"
+    	fi
+
+    	if omv_config_exists "//services/transmissionbt/modules/locationsandfiles/download-dir"; then
+    		echo "# Get download-dir from old section"
+    		dir=`omv_config_get "//services/transmissionbt/modules/locationsandfiles/download-dir"`
+    		object="${object}<dir>${dir}</dir>"
+    	else
+    		object="${object}<dir/>"
+    	fi
+    	omv_config_add_element "//services/transmissionbt/modules/locationsandfiles/paths" "download" "${object}" true
+
+    	object=""
+    	echo "# Add locationsandfiles/paths/incomplete section"
+    	if omv_config_exists "//services/transmissionbt/sharedfolderref"; then
+    		echo "# Get sharedfolderref from old section"
+    		sharedfolderref=`omv_config_get "//services/transmissionbt/sharedfolderref"`
+    		object="${object}<sharedfolderref>${sharedfolderref}</sharedfolderref>"
+    	else
+    		object="${object}<sharedfolderref/>"
+    	fi
+
+    	if omv_config_exists "//services/transmissionbt/modules/locationsandfiles/incomplete-dir"; then
+    		echo "# Get incomplete-dir from old section"
+    		dir=`omv_config_get "//services/transmissionbt/modules/locationsandfiles/incomplete-dir"`
+    		object="${object}<dir>${dir}</dir>"
+    	else
+    		object="${object}<dir/>"
+    	fi
+
+    	if omv_config_exists "//services/transmissionbt/modules/locationsandfiles/incomplete-dir-enabled"; then
+    		echo "# Get incomplete-dir-enabled from old section"
+    		enabled=`omv_config_get "//services/transmissionbt/modules/locationsandfiles/incomplete-dir-enabled"`
+    		object="${object}<enabled>${enabled}</enabled>"
+    	else
+    		object="${object}<enabled>0</enabled>"
+    	fi
+    	omv_config_add_element "//services/transmissionbt/modules/locationsandfiles/paths" "incomplete" "${object}" true
+
+    	object=""
+    	echo "# Add locationsandfiles/paths/watch section"
+    	if omv_config_exists "//services/transmissionbt/sharedfolderref"; then
+    		echo "# Get sharedfolderref from old section"
+    		sharedfolderref=`omv_config_get "//services/transmissionbt/sharedfolderref"`
+    		object="${object}<sharedfolderref>${sharedfolderref}</sharedfolderref>"
+    	else
+    		object="${object}<sharedfolderref/>"
+    	fi
+
+    	if omv_config_exists "//services/transmissionbt/modules/locationsandfiles/watch-dir"; then
+    		echo "# Get watch-dir from old section"
+    		dir=`omv_config_get "//services/transmissionbt/modules/locationsandfiles/watch-dir"`
+    		object="${object}<dir>${dir}</dir>"
+    	else
+    		object="${object}<dir/>"
+    	fi
+
+    	if omv_config_exists "//services/transmissionbt/modules/locationsandfiles/watch-dir-enabled"; then
+    		echo "# Get watch-dir-enabled from old section"
+    		enabled=`omv_config_get "//services/transmissionbt/modules/locationsandfiles/watch-dir-enabled"`
+    		object="${object}<enabled>${enabled}</enabled>"
+    	else
+    		object="${object}<enabled>0</enabled>"
+    	fi
+    	omv_config_add_element "//services/transmissionbt/modules/locationsandfiles/paths" "watch" "${object}" true
+
+    	echo "# Remove sharedfolderref from old section"
+    	omv_config_delete "//services/transmissionbt/sharedfolderref"
+
+    	echo "# Remove download-dir from old section"
+    	omv_config_delete "//services/transmissionbt/modules/locationsandfiles/download-dir"
+
+    	echo "# Remove incomplete-dir from old section"
+    	omv_config_delete "//services/transmissionbt/modules/locationsandfiles/incomplete-dir"
+    	echo "# Remove incomplete-dir-enabled from old section"
+    	omv_config_delete "//services/transmissionbt/modules/locationsandfiles/incomplete-dir-enabled"
+
+    	echo "# Remove watch-dir from old section"
+    	omv_config_delete "//services/transmissionbt/modules/locationsandfiles/watch-dir"
+    	echo "# Remove watch-dir-enabled from old section"
+    	omv_config_delete "//services/transmissionbt/modules/locationsandfiles/watch-dir-enabled"
+    fi
+
 		########################################################################
 		# Import system group 'debian-transmission' created by the
 		# transmission-daemon package.

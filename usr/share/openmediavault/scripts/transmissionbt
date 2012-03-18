@@ -46,11 +46,17 @@ xmlstarlet sel -t -m "//services/transmissionbt" \
   -i "rpcauthenticationrequired[. = '0']" -o " --no-auth" -b \
   -o "&quot;" \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_TRANSMISSIONBT_DEFAULT}
+  
+  
+BT_XMLSTARLET_GET_SHAREDFOLDER_PATH_DOWNLOAD=${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH=-m "//system/shares/sharedfolder[uuid=current()/modules/locationsandfiles/download/sharedfolderref]" -v "concat(//system/fstab/mntent[uuid=current()/mntentref]/dir,'/',reldirpath)" -b}
+BT_XMLSTARLET_GET_SHAREDFOLDER_PATH_INCOMPLETE=${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH=-m "//system/shares/sharedfolder[uuid=current()/modules/locationsandfiles/incomplete/sharedfolderref]" -v "concat(//system/fstab/mntent[uuid=current()/mntentref]/dir,'/',reldirpath)" -b}
+BT_XMLSTARLET_GET_SHAREDFOLDER_PATH_WATCH=${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH=-m "//system/shares/sharedfolder[uuid=current()/modules/locationsandfiles/watch/sharedfolderref]" -v "concat(//system/fstab/mntent[uuid=current()/mntentref]/dir,'/',reldirpath)" -b}
+
 
 # Create '/etc/transmission-daemon/settings.json' file
 xmlstarlet sel -t -m "//services/transmissionbt" \
   -o "{" -n \
-  -o "&quot;download-dir&quot;: &quot;" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "/" -v modules/locationsandfiles/download-dir -o "&quot;," -n \
+  -o "&quot;download-dir&quot;: &quot;" ${BT_XMLSTARLET_GET_SHAREDFOLDER_PATH_DOWNLOAD} -o "/" -v modules/locationsandfiles/paths/download/dir -o "&quot;," -n \
   -o "&quot;script-torrent-done-enabled&quot;: " \
   -i "script-torrent-done-enabled[. = '0']" -o "false" -b \
   -i "script-torrent-done-enabled[. = '1']" -o "true" -b \
@@ -100,15 +106,15 @@ xmlstarlet sel -t -m "//services/transmissionbt" \
   -o "&quot;rpc-whitelist&quot;: &quot;${OMV_TRANSMISSIONBT_RPCWHITELIST}&quot;," -n \
   -o "&quot;rpc-whitelist-enabled&quot;: ${OMV_TRANSMISSIONBT_RPCWHITELISTENABLED}," -n \
   -o "&quot;incomplete-dir-enabled&quot;: " \
-  -i "modules/locationsandfiles/incomplete-dir-enabled[. = '0']" -o "false" -b \
-  -i "modules/locationsandfiles/incomplete-dir-enabled[. = '1']" -o "true" -b \
+  -i "modules/locationsandfiles/paths/incomplete/enabled[. = '0']" -o "false" -b \
+  -i "modules/locationsandfiles/paths/incomplete/enabled[. = '1']" -o "true" -b \
   -o "," -n \
-  -o "&quot;incomplete-dir&quot;: &quot;" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "/" -v modules/locationsandfiles/incomplete-dir -o "&quot;," -n \
+  -o "&quot;incomplete-dir&quot;: &quot;" ${BT_XMLSTARLET_GET_SHAREDFOLDER_PATH_INCOMPLETE} -o "/" -v modules/locationsandfiles/paths/incomplete/dir -o "&quot;," -n \
   -o "&quot;watch-dir-enabled&quot;: " \
-  -i "modules/locationsandfiles/watch-dir-enabled[. = '0']" -o "false" -b \
-  -i "modules/locationsandfiles/watch-dir-enabled[. = '1']" -o "true" -b \
+  -i "modules/locationsandfiles/paths/watch/enabled[. = '0']" -o "false" -b \
+  -i "modules/locationsandfiles/paths/watch/enabled[. = '1']" -o "true" -b \
   -o "," -n \
-  -o "&quot;watch-dir&quot;: &quot;" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "/" -v modules/locationsandfiles/watch-dir -o "&quot;," -n \
+  -o "&quot;watch-dir&quot;: &quot;" ${BT_XMLSTARLET_GET_SHAREDFOLDER_PATH_WATCH} -o "/" -v modules/locationsandfiles/paths/watch/dir -o "&quot;," -n \
   -v "concat('&quot;preallocation&quot;: ',modules/locationsandfiles/preallocation,',')" -n \
   -o "&quot;rename-partial-files&quot;: " \
   -i "modules/locationsandfiles/rename-partial-files[. = '0']" -o "false" -b \
@@ -192,10 +198,10 @@ xmlstarlet sel -t -m "//services/transmissionbt" \
 
 enable=$(omv_config_get "//services/transmissionbt/enable")
 
-watch_dir_enable=$(omv_config_get "//services/transmissionbt/modules/locationsandfiles/watch-dir-enabled")
+watch_dir_enable=$(omv_config_get "//services/transmissionbt/modules/locationsandfiles/paths/watch/enabled")
 if [ 1 = ${enable} -a  1 = ${watch_dir_enable} ]; then
-	watch_dir=$(omv_config_get "//services/transmissionbt/modules/locationsandfiles/watch-dir")
-	watch_dir_full=`xmlstarlet sel -t -m "//services/transmissionbt" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "/" -v "modules/locationsandfiles/watch-dir" ${OMV_CONFIG_FILE}`
+	watch_dir=$(omv_config_get "//services/transmissionbt/modules/locationsandfiles/paths/watch/dir")
+	watch_dir_full=`xmlstarlet sel -t -m "//services/transmissionbt" ${BT_XMLSTARLET_GET_SHAREDFOLDER_PATH_WATCH} -o "/" -v "modules/locationsandfiles/paths/watch/dir" ${OMV_CONFIG_FILE}`
 	mkdir -p ${watch_dir_full}
 fi
 

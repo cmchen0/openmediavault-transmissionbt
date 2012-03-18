@@ -24,7 +24,7 @@ OMV.Module.Services.TransmissionBT.Admin.FilesAndLocationsPanel = function(confi
 	};
 	Ext.apply(initialConfig, config);
 	OMV.Module.Services.TransmissionBT.Admin.FilesAndLocationsPanel.superclass.constructor.call(
-	  this, initialConfig);
+					this, initialConfig);
 };
 Ext.extend(OMV.Module.Services.TransmissionBT.Admin.FilesAndLocationsPanel, OMV.FormPanelExt, {
 	getFormItems : function() {
@@ -32,44 +32,85 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.FilesAndLocationsPanel, OMV.
 			xtype: "fieldset",
 			title: "Locations",
 			defaults: {
-//				anchor: "100%",
 				labelSeparator: ""
 			},
 			items: [{
-				xtype: "textfield",
-				name: "download-dir",
-				fieldLabel: "Download directory",
-				allowBlank: true,
-				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Directory to keep downloads. If incomplete is enabled, only complete downloads will be stored here."
+				xtype: "fieldset",
+				title: "Download",
+				defaults: {
+					labelSeparator: ""
+				},
+				items: [{
+					xtype: "sharedfoldercombo",
+					name: "download-sharedfolderref",
+					hiddenName: "download-sharedfolderref",
+					fieldLabel: "download-Shared folder",
+					plugins: [ OMV.form.plugins.FieldInfo ],
+					infoText: "Make sure the group 'debian-transmission' has read/write access to the shared folder."
+				},{
+					xtype: "textfield",
+					name: "download-dir",
+					fieldLabel: "Directory",
+					allowBlank: true,
+					plugins: [ OMV.form.plugins.FieldInfo ],
+					infoText: "Directory to keep downloads. If incomplete is enabled, only complete downloads will be stored here."
+				}]
 			},{
-				xtype: "checkbox",
-				name: "incomplete-dir-enabled",
-				fieldLabel: "Incomplete",
-				checked: false,
-				inputValue: 1,
-				boxLabel: "Enable incomplete directory."
+				xtype: "fieldset",
+				title: "Incomplete",
+				defaults: {
+					labelSeparator: ""
+				},
+				items: [{
+					xtype: "checkbox",
+					name: "incomplete-dir-enabled",
+					fieldLabel: "Incomplete",
+					checked: false,
+					inputValue: 1,
+					boxLabel: "Enable incomplete directory."
+				},{
+					xtype: "sharedfoldercombo",
+					name: "incomplete-sharedfolderref",
+					hiddenName: "incomplete-sharedfolderref",
+					fieldLabel: "Shared folder",
+					plugins: [ OMV.form.plugins.FieldInfo ],
+					infoText: "Make sure the group 'debian-transmission' has read/write access to the shared folder."
+				},{
+					xtype: "textfield",
+					name: "incomplete-dir",
+					fieldLabel: "Incomplete directory",
+					allowBlank: false,
+					plugins: [ OMV.form.plugins.FieldInfo ],
+					infoText: "Directory to keep files in until torrent is complete."
+				}]
 			},{
-				xtype: "textfield",
-				name: "incomplete-dir",
-				fieldLabel: "Incomplete directory",
-				allowBlank: false,
-				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Directory to keep files in until torrent is complete."
-			},{
-				xtype: "checkbox",
-				name: "watch-dir-enabled",
-				fieldLabel: "Watch",
-				checked: false,
-				inputValue: 1,
-				boxLabel: "Enable Watch directory."
-			},{
-				xtype: "textfield",
-				name: "watch-dir",
-				fieldLabel: "Watch directory",
-				allowBlank: false,
-				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Watch a directory for torrent files and add them to transmission"
+				xtype: "fieldset",
+				title: "Watch",
+				defaults: {
+					labelSeparator: ""
+				},
+				items: [{
+					xtype: "checkbox",
+					name: "watch-dir-enabled",
+					fieldLabel: "Watch",
+					checked: false,
+					inputValue: 1,
+					boxLabel: "Enable Watch directory."
+				},{
+					xtype: "sharedfoldercombo",
+					name: "watch-sharedfolderref",
+					hiddenName: "watch-sharedfolderref",
+					fieldLabel: "Shared folder",
+					plugins: [ OMV.form.plugins.FieldInfo ],
+					infoText: "Make sure the group 'debian-transmission' has read/write access to the shared folder."
+				},{
+					xtype: "textfield",
+					name: "watch-dir",
+					fieldLabel: "Watch directory",
+					allowBlank: false,
+					plugins: [ OMV.form.plugins.FieldInfo ],
+					infoText: "Watch a directory for torrent files and add them to transmission"
+				}]
 			}]
 		},{
 			xtype: "fieldset",
