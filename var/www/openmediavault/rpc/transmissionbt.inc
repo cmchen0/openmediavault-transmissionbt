@@ -39,28 +39,27 @@ class TransmissionBTRpc extends OMVRpc {
 				"type":"object",
 				"properties":{
 					"enable":{"type":"boolean"},
-					"sharedfolderref":{' . $GLOBALS['OMV_JSONSCHEMA_UUID_NONE'] . '},
-					"pexenabled":{"type":"boolean"},
-					"dhtenabled":{"type":"boolean"},
 					"encryption":{"type":"integer","enum":[0,1,2]},
-					"rpcurl":{"type":"string","format":"regex","pattern":"/^[a-z0-9]+$/i"},
+					"message-level":{"type":"integer","enum":[0,1,2,3]},
+					"lazy-bitfield-enabled":{"type":"boolean"},
+					"scrape-paused-torrents-enabled":{"type":"boolean"},
+					"umask":{"type":"integer"},
+					"cache-size-mb":{"type":"integer"},
 					"rpcport":{"type":"integer","minimum":1024,"maximum":65535},
+					"rpcurl":{"type":"string","format":"regex","pattern":"/^[a-z0-9]+$/i"},
 					"rpcauthenticationrequired":{"type":"boolean"},
 					"rpcusername":{"type":"string"},
 					"rpcpassword":{"type":"string"},
+					"blocklistsyncfrequency":{"type":"string","enum":["hourly","daily","weekly","monthly"]},
+					"blocklisturl":{"type":"string"},
+					"script-torrent-done-filename":{"type":"string"},
+					"pexenabled":{"type":"boolean"},
+					"dhtenabled":{"type":"boolean"},
+					"lpd-enabled":{"type":"boolean"},
+					"utp-enabled":{"type":"boolean"},
 					"blocklistenabled":{"type":"boolean"},
 					"blocklistsyncenabled":{"type":"boolean"},
-					"blocklistsyncfrequency":{"type":"string","enum":' . '["hourly","daily","weekly","monthly"]},
-					"blocklisturl":{"type":"string"},
-					"lazy-bitfield-enabled":{"type":"boolean"},
-					"umask":{"type":"integer"},
-					"lpd-enabled":{"type":"boolean"},
-					"scrape-paused-torrents-enabled":{"type":"boolean"},
-					"utp-enabled":{"type":"boolean"},
-					"message-level":{"type":"integer","enum":[0,1,2,3]},
-					"cache-size-mb":{"type":"integer"},
-					"script-torrent-done-enabled"{"type":"boolean"},
-					"script-torrent-done-filename":{"type":"string"}
+					"script-torrent-done-enabled":{"type":"boolean"}
 				}
 			}'
 			),
@@ -68,11 +67,14 @@ class TransmissionBTRpc extends OMVRpc {
 				'{
 				"type":"object",
 				"properties":{
+					"download-sharedfolderref":{' . $GLOBALS['OMV_JSONSCHEMA_UUID_NONE'] . '},
 					"download-dir":{"type":"string"},
-					"incomplete-dir":{"type":"string"},
 					"incomplete-dir-enabled":{"type":"boolean"},
-					"watch-dir":{"type":"string"},
+					"incomplete-sharedfolderref":{' . $GLOBALS['OMV_JSONSCHEMA_UUID_NONE'] . '},
+					"incomplete-dir":{"type":"string"},
 					"watch-dir-enabled":{"type":"boolean"},
+					"watch-sharedfolderref":{' . $GLOBALS['OMV_JSONSCHEMA_UUID_NONE'] . '},
+					"watch-dir":{"type":"string"},
 					"preallocation":{"type":"integer","enum":[0,1,2]},
 					"rename-partial-files":{"type":"boolean"},
 					"start-added-torrents":{"type":"boolean"},
@@ -371,19 +373,21 @@ class TransmissionBTRpc extends OMVRpc {
 		// Prepare configuration data
 		$object = array(
 			// Locations
-			'download'										 => array(
-				'sharedfolderref' => $data['download-sharedfolderref'],
-				'dir'						 => $data['download-dir'],
-			),
-			'incomplete'									 => array(
-				'enabled'				 => array_boolval($data, 'incomplete-dir-enabled'),
-				'sharedfolderref' => $data['incomplete-sharedfolderref'],
-				'dir'						 => $data['incomplete-dir'],
-			),
-			'watch'												=> array(
-				'enabled'				 => array_boolval($data, 'watch-dir-enabled'),
-				'sharedfolderref' => $data['watch-sharedfolderref'],
-				'dir'						 => $data['watch-dir'],
+			'paths'                        => array(
+				'download'										 => array(
+					'sharedfolderref' => $data['download-sharedfolderref'],
+					'dir'						 => $data['download-dir'],
+				),
+				'incomplete'									 => array(
+					'enabled'				 => array_boolval($data, 'incomplete-dir-enabled'),
+					'sharedfolderref' => $data['incomplete-sharedfolderref'],
+					'dir'						 => $data['incomplete-dir'],
+				),
+				'watch'												=> array(
+					'enabled'				 => array_boolval($data, 'watch-dir-enabled'),
+					'sharedfolderref' => $data['watch-sharedfolderref'],
+					'dir'						 => $data['watch-dir'],
+				),
 			),
 			// Files
 			"preallocation"								=> $data['preallocation'],
