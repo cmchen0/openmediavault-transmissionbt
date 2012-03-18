@@ -96,6 +96,39 @@ class TransmissionBTModule extends OMVModuleAbstract implements
 		}
 	}
 
+	public function updateServiceRestart() {
+		global $xmlConfig;
+		// Get the configuration object
+		$xpath = "//services/transmissionbt";
+		$object = $xmlConfig->get($xpath);
+		if (is_null($object)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+				$xpath);
+		}
+		// Currently transmission overwrites the settings.json configuration
+		// file on exit. This means transmission must be terminated before
+		// writing the new settings.json file.
+		$initd = new OMVSysVInitScript("transmission-daemon", boolval($object['enable']));
+		$initd->stop();
+
+		// Create '/etc/transmission-daemon/settings.json' file
+		$cmd = "sudo omv-mkconf transmissionbt 2>&1";
+		OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+				$cmd, implode("\n", $output));
+		}
+		// Update service
+		$cmd = "sudo pkill -HUP transmission-da";
+		OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			// Start the Service, it is not running
+			if (boolval($object['enable']) === true) {
+				$initd->exec();
+			}
+		}
+	}
+
 	/**
 	 * Bind listeners.
 	 */
@@ -105,6 +138,11 @@ class TransmissionBTModule extends OMVModuleAbstract implements
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.transmissionbt",
 		  array($this, "updateService"), 1);
+
+		$dispatcher->addListener(
+			OMV_NOTIFY_MODIFY,
+			"org.openmediavault.services.transmissionbt.restart",
+			array($this, "updateServiceRestart"), 1);
 		// Update Zeroconfig if configuration has been modified
 		$moduleMgr = &OMVModuleMgr::getInstance();
 		$dispatcher->addListener(
