@@ -231,7 +231,10 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Manage.TorrentListGrid, OMV.grid.T
 						delete this.reloadTask;
 					}
 				}, this);
-				this.store.reload();
+				if (this.store !== null)
+				{
+					this.store.reload();
+				}
 				this.toggleButtons();
 				this.toggleContextMenu();
 			}
