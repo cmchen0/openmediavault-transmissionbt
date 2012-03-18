@@ -353,7 +353,7 @@ class TransmissionBTRpc extends OMVRpc {
 		// Notify configuration changes
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.transmissionbt", $object);
+		  "org.openmediavault.services.transmissionbt.restart", $object);
 	}
 
 	/**
