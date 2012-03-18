@@ -1,3 +1,9 @@
+openmediavault-transmissionbt (0.2.8.9) stable; urgency=low
+
+  * Fixes Mantis #377
+
+ -- Marcel Beck <marcel.beck@mbeck.org>  Sun, 18 Mar 2012 13:58:37 +0100
+
 openmediavault-transmissionbt (0.2.8.8) stable; urgency=high
 
   * Fixed Last Package (Official 0.2.8.6)
