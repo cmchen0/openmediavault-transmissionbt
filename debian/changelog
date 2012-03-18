@@ -1,3 +1,9 @@
+openmediavault-transmissionbt (0.2.9.1) stable; urgency=high
+
+  * Fixed Config errors
+
+ -- Marcel Beck <marcel.beck@mbeck.org>  Sun, 18 Mar 2012 17:01:42 +0100
+
 openmediavault-transmissionbt (0.2.9) stable; urgency=low
 
   * Github Issue #33 - Watch directory doesn't need to be in incoming folder.
