@@ -43,7 +43,7 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.FilesAndLocationsPanel, OMV.
 				items: [{
 					xtype: "sharedfoldercombo",
 					name: "download-sharedfolderref",
-					hiddenName: "sharedfolderref",
+					hiddenName: "download-sharedfolderref",
 					fieldLabel: "download-Shared folder",
 					plugins: [ OMV.form.plugins.FieldInfo ],
 					infoText: "Make sure the group 'debian-transmission' has read/write access to the shared folder."

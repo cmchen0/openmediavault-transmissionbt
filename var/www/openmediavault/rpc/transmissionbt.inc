@@ -270,7 +270,6 @@ class TransmissionBTRpc extends OMVRpc {
 		// Prepare configuration data
 		$object = array(
 			"enable"												 => array_boolval($data, 'enable'),
-			"sharedfolderref"								=> $data['sharedfolderref'],
 			"pexenabled"										 => array_boolval($data, 'pexenabled'),
 			"dhtenabled"										 => array_boolval($data, 'dhtenabled'),
 			"encryption"										 => $data['encryption'],
@@ -334,16 +333,16 @@ class TransmissionBTRpc extends OMVRpc {
 		}
 		// Modify result data
 		// Locations
-		$object['download-sharedfolderref'] = boolval($object['paths']['download']['sharedfolderref']);
-		$object['download-dir']             = boolval($object['paths']['download']['dir']);
+		$object['download-sharedfolderref'] = $object['paths']['download']['sharedfolderref'];
+		$object['download-dir']             = $object['paths']['download']['dir'];
 
 		$object['incomplete-dir-enabled']     = boolval($object['paths']['incomplete']['enabled']);
-		$object['incomplete-sharedfolderref'] = boolval($object['paths']['incomplete']['sharedfolderref']);
-		$object['incomplete-dir']             = boolval($object['paths']['incomplete']['dir']);
+		$object['incomplete-sharedfolderref'] = $object['paths']['incomplete']['sharedfolderref'];
+		$object['incomplete-dir']             = $object['paths']['incomplete']['dir'];
 
 		$object['watch-dir-enabled']     = boolval($object['paths']['watch']['enabled']);
-		$object['watch-sharedfolderref'] = boolval($object['paths']['watch']['sharedfolderref']);
-		$object['watch-dir']             = boolval($object['paths']['watch']['dir']);
+		$object['watch-sharedfolderref'] = $object['paths']['watch']['sharedfolderref'];
+		$object['watch-dir']             = $object['paths']['watch']['dir'];
 
 		// Files
 		$object['preallocation']                = intval($object['preallocation']);
