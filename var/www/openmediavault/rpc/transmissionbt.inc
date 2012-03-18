@@ -373,19 +373,21 @@ class TransmissionBTRpc extends OMVRpc {
 		// Prepare configuration data
 		$object = array(
 			// Locations
-			'download'										 => array(
-				'sharedfolderref' => $data['download-sharedfolderref'],
-				'dir'						 => $data['download-dir'],
-			),
-			'incomplete'									 => array(
-				'enabled'				 => array_boolval($data, 'incomplete-dir-enabled'),
-				'sharedfolderref' => $data['incomplete-sharedfolderref'],
-				'dir'						 => $data['incomplete-dir'],
-			),
-			'watch'												=> array(
-				'enabled'				 => array_boolval($data, 'watch-dir-enabled'),
-				'sharedfolderref' => $data['watch-sharedfolderref'],
-				'dir'						 => $data['watch-dir'],
+			'paths'                        => array(
+				'download'										 => array(
+					'sharedfolderref' => $data['download-sharedfolderref'],
+					'dir'						 => $data['download-dir'],
+				),
+				'incomplete'									 => array(
+					'enabled'				 => array_boolval($data, 'incomplete-dir-enabled'),
+					'sharedfolderref' => $data['incomplete-sharedfolderref'],
+					'dir'						 => $data['incomplete-dir'],
+				),
+				'watch'												=> array(
+					'enabled'				 => array_boolval($data, 'watch-dir-enabled'),
+					'sharedfolderref' => $data['watch-sharedfolderref'],
+					'dir'						 => $data['watch-dir'],
+				),
 			),
 			// Files
 			"preallocation"								=> $data['preallocation'],
