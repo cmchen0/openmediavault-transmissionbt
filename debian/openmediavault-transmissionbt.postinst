@@ -320,7 +320,7 @@ case "$1" in
     	echo "# Remove incomplete-dir-enabled from old section"
     	omv_config_delete "//services/transmissionbt/modules/locationsandfiles/incomplete-dir-enabled"
 
-    	echo "# Remove watch-dir-enabled from old section"
+    	echo "# Remove watch-dir from old section"
     	omv_config_delete "//services/transmissionbt/modules/locationsandfiles/watch-dir"
     	echo "# Remove watch-dir-enabled from old section"
     	omv_config_delete "//services/transmissionbt/modules/locationsandfiles/watch-dir-enabled"
