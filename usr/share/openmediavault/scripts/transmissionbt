@@ -71,6 +71,7 @@ xmlstarlet sel -t -m "//services/transmissionbt" \
   -i "blocklistenabled[. = '0']" -o "false" -b \
   -i "blocklistenabled[. = '1']" -o "true" -b \
   -o "," -n \
+  -v "concat('&quot;blocklist-url&quot;: ',blocklisturl,',')" -n \
   -o "&quot;pex-enabled&quot;: " \
   -i "pexenabled[. = '0']" -o "false" -b \
   -i "pexenabled[. = '1']" -o "true" -b \
@@ -224,28 +225,19 @@ do
 done
 
 if [ 1 = ${enable} -a 1 = ${blocklistsyncenabled} ]; then
-	blocklisturl=$(omv_config_get "//services/transmissionbt/blocklisturl")
+	rpcusername=$(omv_config_get "//services/transmissionbt/rpcusername")
+	rpcpassword=$(omv_config_get "//services/transmissionbt/rpcpassword")
 	cat <<EOF > ${cronfile}
 #!/bin/sh
 #
 # cron script to update TransmissionBT blocklists
 # by Volker Theile <volker.theile@openmediavault.org>
+# by Marcel Beck <marcel.beck@mbeck.org>
 
 set -e
 
-. /etc/default/openmediavault
-. /usr/share/openmediavault/scripts/helper-functions
+transmission-remote -n ${rpcusername}:${rpcpassword} --blocklist-update
 
-# Download blocklist archive
-cd /var/lib/transmission-daemon/info/blocklists
-if wget ${blocklisturl} 1>/dev/null 2>&1 ; then
-	rm -f level1 && gunzip level1.gz
-	omv_log -t transmission "Blocklist updated"
-else
-	omv_log -t transmission "Failed to update blocklist"
-fi
-# Restart transmission-daemon to use the latest blocklist
-invoke-rc.d transmission-daemon restart 1>/dev/null 2>&1 || true
 EOF
 	chmod 755 ${cronfile}
 fi
