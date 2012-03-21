@@ -1,8 +1,8 @@
-openmediavault-transmissionbt (0.2.10) stable; urgency=high
+openmediavault-transmissionbt (0.2.10.1) stable; urgency=high
 
   * Mantis Issue #378 - Blocklist feature bug
 
- -- Marcel Beck <marcel.beck@mbeck.org>  Sun, 18 Mar 2012 17:15:38 +0100
+ -- Marcel Beck <marcel.beck@mbeck.org>  Wed, 21 Mar 2012 19:39:17 +0100
 
 openmediavault-transmissionbt (0.2.9.2) stable; urgency=high
 
