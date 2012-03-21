@@ -1,3 +1,9 @@
+openmediavault-transmissionbt (0.2.10) stable; urgency=high
+
+  * Mantis Issue #378 - Blicklist feature bug
+
+ -- Marcel Beck <marcel.beck@mbeck.org>  Sun, 18 Mar 2012 17:15:38 +0100
+
 openmediavault-transmissionbt (0.2.9.2) stable; urgency=high
 
   * Github Issue #30 - Error with jobs tab and autorefresh after update to 0.2.8.3
