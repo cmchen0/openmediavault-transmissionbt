@@ -71,7 +71,7 @@ xmlstarlet sel -t -m "//services/transmissionbt" \
   -i "blocklistenabled[. = '0']" -o "false" -b \
   -i "blocklistenabled[. = '1']" -o "true" -b \
   -o "," -n \
-  -v "concat('&quot;blocklist-url&quot;: ',blocklisturl,',')" -n \
+  -v "concat('&quot;blocklist-url&quot;: &quot;',blocklisturl,'&quot;,')" -n \
   -o "&quot;pex-enabled&quot;: " \
   -i "pexenabled[. = '0']" -o "false" -b \
   -i "pexenabled[. = '1']" -o "true" -b \

@@ -1,3 +1,9 @@
+openmediavault-transmissionbt (0.2.10.2) stable; urgency=high
+
+  * Fixed - Bug within blocklist-url in settings.json
+
+ -- Marcel Beck <marcel.beck@mbeck.org>  Thu, 22 Mar 2012 09:20:21 +0100
+
 openmediavault-transmissionbt (0.2.10.1) stable; urgency=high
 
   * Mantis Issue #378 - Blocklist feature bug
