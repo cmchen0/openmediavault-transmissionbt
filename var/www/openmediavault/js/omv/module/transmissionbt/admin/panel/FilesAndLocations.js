@@ -17,7 +17,7 @@ Ext.ns("OMV.Module.Services.TransmissionBT.Admin");
  */
 OMV.Module.Services.TransmissionBT.Admin.FilesAndLocationsPanel = function(config) {
 	var initialConfig = {
-		title: "Files and Locations",
+		title: _("Files and Locations"),
 		rpcService: "TransmissionBT",
 		rpcGetMethod: "getLocationsAndFiles",
 		rpcSetMethod: "setLocationsAndFiles"
@@ -30,7 +30,7 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.FilesAndLocationsPanel, OMV.
 	getFormItems : function() {
 		return [{
 			xtype: "fieldset",
-			title: "Locations",
+			title: _("Locations"),
 			defaults: {
 				labelSeparator: ""
 			},
@@ -44,16 +44,16 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.FilesAndLocationsPanel, OMV.
 					xtype: "sharedfoldercombo",
 					name: "download-sharedfolderref",
 					hiddenName: "download-sharedfolderref",
-					fieldLabel: "download-Shared folder",
+					fieldLabel: _("download-Shared folder"),
 					plugins: [ OMV.form.plugins.FieldInfo ],
-					infoText: "Make sure the group 'debian-transmission' has read/write access to the shared folder."
+					infoText: _("Make sure the group 'debian-transmission' has read/write access to the shared folder.")
 				},{
 					xtype: "textfield",
 					name: "download-dir",
-					fieldLabel: "Directory",
+					fieldLabel: _("Directory"),
 					allowBlank: true,
 					plugins: [ OMV.form.plugins.FieldInfo ],
-					infoText: "Directory to keep downloads. If incomplete is enabled, only complete downloads will be stored here."
+					infoText: _("Directory to keep downloads. If incomplete is enabled, only complete downloads will be stored here.")
 				}]
 			},{
 				xtype: "fieldset",
@@ -64,24 +64,24 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.FilesAndLocationsPanel, OMV.
 				items: [{
 					xtype: "checkbox",
 					name: "incomplete-dir-enabled",
-					fieldLabel: "Incomplete",
+					fieldLabel: _("Incomplete"),
 					checked: false,
 					inputValue: 1,
-					boxLabel: "Enable incomplete directory."
+					boxLabel: _("Enable incomplete directory.")
 				},{
 					xtype: "sharedfoldercombo",
 					name: "incomplete-sharedfolderref",
 					hiddenName: "incomplete-sharedfolderref",
-					fieldLabel: "Shared folder",
+					fieldLabel: _("Shared folder"),
 					plugins: [ OMV.form.plugins.FieldInfo ],
-					infoText: "Make sure the group 'debian-transmission' has read/write access to the shared folder."
+					infoText: _("Make sure the group 'debian-transmission' has read/write access to the shared folder.")
 				},{
 					xtype: "textfield",
 					name: "incomplete-dir",
-					fieldLabel: "Incomplete directory",
+					fieldLabel: _("Incomplete directory"),
 					allowBlank: false,
 					plugins: [ OMV.form.plugins.FieldInfo ],
-					infoText: "Directory to keep files in until torrent is complete."
+					infoText: _("Directory to keep files in until torrent is complete.")
 				}]
 			},{
 				xtype: "fieldset",
@@ -92,29 +92,29 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.FilesAndLocationsPanel, OMV.
 				items: [{
 					xtype: "checkbox",
 					name: "watch-dir-enabled",
-					fieldLabel: "Watch",
+					fieldLabel: _("Watch"),
 					checked: false,
 					inputValue: 1,
-					boxLabel: "Enable Watch directory."
+					boxLabel: _("Enable Watch directory.")
 				},{
 					xtype: "sharedfoldercombo",
 					name: "watch-sharedfolderref",
 					hiddenName: "watch-sharedfolderref",
-					fieldLabel: "Shared folder",
+					fieldLabel: _("Shared folder"),
 					plugins: [ OMV.form.plugins.FieldInfo ],
-					infoText: "Make sure the group 'debian-transmission' has read/write access to the shared folder."
+					infoText: _("Make sure the group 'debian-transmission' has read/write access to the shared folder.")
 				},{
 					xtype: "textfield",
 					name: "watch-dir",
-					fieldLabel: "Watch directory",
+					fieldLabel: _("Watch directory"),
 					allowBlank: false,
 					plugins: [ OMV.form.plugins.FieldInfo ],
-					infoText: "Watch a directory for torrent files and add them to transmission"
+					infoText: _("Watch a directory for torrent files and add them to transmission")
 				}]
 			}]
 		},{
 			xtype: "fieldset",
-			title: "Files",
+			title: _("Files"),
 			defaults: {
 //				anchor: "100%",
 				labelSeparator: ""
@@ -123,14 +123,14 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.FilesAndLocationsPanel, OMV.
 				xtype: "combo",
 				name: "preallocation",
 				hiddenName: "preallocation",
-				fieldLabel: "Preallocation",
+				fieldLabel: _("Preallocation"),
 				mode: "local",
 				store: new Ext.data.SimpleStore({
 					fields: [ "value","text" ],
 					data: [
-						[ 0,"Off" ],
-						[ 1,"Fast" ],
-						[ 2,"Full" ]
+						[ 0,_("Off") ],
+						[ 1,_("Fast") ],
+						[ 2,_("Full") ]
 					]
 				}),
 				displayField: "text",
@@ -140,28 +140,28 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.FilesAndLocationsPanel, OMV.
 				triggerAction: "all",
 				value: 1,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Mode for preallocating files."
+				infoText: _("Mode for preallocating files.")
 			},{
 				xtype: "checkbox",
 				name: "rename-partial-files",
-				fieldLabel: "Postfix",
+				fieldLabel: _("Postfix"),
 				checked: true,
 				inputValue: 1,
-				boxLabel: "Postfix partially downloaded files with .part."
+				boxLabel: _("Postfix partially downloaded files with .part.")
 			},{
 				xtype: "checkbox",
 				name: "start-added-torrents",
-				fieldLabel: "Start Torrents",
+				fieldLabel: _("Start Torrents"),
 				checked: true,
 				inputValue: 1,
-				boxLabel: "Start torrents as soon as they are added."
+				boxLabel: _("Start torrents as soon as they are added.")
 			},{
 				xtype: "checkbox",
 				name: "trash-original-torrent-files",
-				fieldLabel: "Trash original",
+				fieldLabel: _("Trash original"),
 				checked: false,
 				inputValue: 1,
-				boxLabel: "Delete torrents added from the watch directory."
+				boxLabel: _("Delete torrents added from the watch directory.")
 			}]
 		}];
 	}

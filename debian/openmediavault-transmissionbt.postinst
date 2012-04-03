@@ -45,6 +45,12 @@ case "$1" in
 		omv_install_fixperms
 
 		########################################################################
+		# Install locale files.
+		########################################################################
+		echo "Install locale files ..."
+		omv_install_locale
+
+		########################################################################
 		# Update the configuration.
 		# <config>
 		#   <services>
@@ -325,12 +331,6 @@ case "$1" in
     	echo "# Remove watch-dir-enabled from old section"
     	omv_config_delete "//services/transmissionbt/modules/locationsandfiles/watch-dir-enabled"
     fi
-
-		########################################################################
-		# Import system group 'debian-transmission' created by the
-		# transmission-daemon package.
-		########################################################################
-		omv_config_import_group "debian-transmission"
 
 		echo "Write Config"
 		omv-mkconf transmissionbt 2>&1
