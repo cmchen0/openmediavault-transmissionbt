@@ -11,7 +11,6 @@
 // require("js/omv/data/Store.js")
 // require("js/omv/CfgObjectDialog.js")
 // require("js/omv/grid/TBarGridPanel.js")
-// require("js/omv/form/MultiSelect.js")
 // require("js/omv/util/Format.js")
 // require("js/omv/ExecCmdDialog.js")
 
