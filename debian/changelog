@@ -1,3 +1,9 @@
+openmediavault-transmissionbt (0.2.10.3) stable; urgency=high
+
+  * Mantis Issue #408 Fix - OMV.util.Format is undefined
+
+ -- Marcel Beck <marcel.beck@mbeck.org>  Sun, 08 Apr 2012 09:50:21 +0200
+
 openmediavault-transmissionbt (0.2.10.2) stable; urgency=high
 
   * Fixed - Bug within blocklist-url in settings.json
