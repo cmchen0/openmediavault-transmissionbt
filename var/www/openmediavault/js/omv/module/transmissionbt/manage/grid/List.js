@@ -822,28 +822,28 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Manage.TorrentListGrid, OMV.grid.T
 	statusRenderer : function(val, cell, record, row, col, store) {
 		switch (val) {
 		case 0:
-			val = "Torrent is stopped";
+			val = _("Torrent is stopped");
 			break;
 		case 1:
-			val = "Queued to check files";
+			val = _("Queued to check files");
 			break;
 		case 2:
-			val = "Checking files";
+			val = _("Checking files");
 			break;
 		case 3:
-			val = "Queued to download";
+			val = _("Queued to download");
 			break;
 		case 4:
-			val = "Downloading";
+			val = _("Downloading");
 			break;
 		case 5:
-			val = "Queued to seed";
+			val = _("Queued to seed");
 			break;
 		case 6:
-			val = "Seeding";
+			val = _("Seeding");
 			break;
 		default:
-			val = "Missing Status: " + val;
+			val = _("Missing Status: ") + val;
 			break;
 		}
 		return val;
@@ -852,10 +852,10 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Manage.TorrentListGrid, OMV.grid.T
 	etaRenderer : function(val, cell, record, row, col, store) {
 		switch (val) {
 		case -1:
-			val = "Not available";
+			val = _("Not available");
 			break;
 		case -2:
-			val = "Unknown";
+			val = _("Unknown");
 			break;
 		default:
 			val = OMV.Module.Services.TransmissionBT.util.Format.timeInterval(val);
@@ -889,10 +889,10 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Manage.TorrentListGrid, OMV.grid.T
 		switch (val)
 		{
 			case -1:
-				val = "Not available";
+				val = _("Not available");
 				break;
 			case -2:
-				val = "Infinite";
+				val = _("Infinite");
 				break;
 		}
 		return val;

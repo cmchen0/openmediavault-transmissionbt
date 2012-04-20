@@ -44,7 +44,7 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.FilesAndLocationsPanel, OMV.
 					xtype: "sharedfoldercombo",
 					name: "download-sharedfolderref",
 					hiddenName: "download-sharedfolderref",
-					fieldLabel: _("download-Shared folder"),
+					fieldLabel: _("Shared folder"),
 					plugins: [ OMV.form.plugins.FieldInfo ],
 					infoText: _("Make sure the group 'debian-transmission' has read/write access to the shared folder.")
 				},{
@@ -64,7 +64,7 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.FilesAndLocationsPanel, OMV.
 				items: [{
 					xtype: "checkbox",
 					name: "incomplete-dir-enabled",
-					fieldLabel: _("Incomplete"),
+					fieldLabel: _("Enable"),
 					checked: false,
 					inputValue: 1,
 					boxLabel: _("Enable incomplete directory.")
@@ -78,7 +78,7 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.FilesAndLocationsPanel, OMV.
 				},{
 					xtype: "textfield",
 					name: "incomplete-dir",
-					fieldLabel: _("Incomplete directory"),
+					fieldLabel: _("Directory"),
 					allowBlank: false,
 					plugins: [ OMV.form.plugins.FieldInfo ],
 					infoText: _("Directory to keep files in until torrent is complete.")
@@ -92,7 +92,7 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.FilesAndLocationsPanel, OMV.
 				items: [{
 					xtype: "checkbox",
 					name: "watch-dir-enabled",
-					fieldLabel: _("Watch"),
+					fieldLabel: _("Enable"),
 					checked: false,
 					inputValue: 1,
 					boxLabel: _("Enable Watch directory.")
@@ -106,7 +106,7 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.FilesAndLocationsPanel, OMV.
 				},{
 					xtype: "textfield",
 					name: "watch-dir",
-					fieldLabel: _("Watch directory"),
+					fieldLabel: _("Directory"),
 					allowBlank: false,
 					plugins: [ OMV.form.plugins.FieldInfo ],
 					infoText: _("Watch a directory for torrent files and add them to transmission")

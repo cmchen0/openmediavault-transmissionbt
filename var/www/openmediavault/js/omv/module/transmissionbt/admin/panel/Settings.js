@@ -90,9 +90,9 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.SettingsPanel, OMV.FormPanel
 				store: new Ext.data.SimpleStore({
 					fields: [ "value","text" ],
 					data: [
-						[ 0,"Off" ],
-						[ 1,"Preferred" ],
-						[ 2,"Forced" ]
+						[ 0,_("Off") ],
+						[ 1,_("Preferred") ],
+						[ 2,_("Forced") ]
 					]
 				}),
 				displayField: "text",
@@ -341,7 +341,7 @@ Ext.apply(Ext.form.VTypes, {
     transmissionbturi: function(v) {
         return /^[a-z0-9]+$/i.test(v);
     },
-    transmissionbturiText: "Invalid Uri.",
+    transmissionbturiText: _("Invalid Uri."),
     transmissionbturiMask: /[a-z0-9\-_]/i
 
 });
