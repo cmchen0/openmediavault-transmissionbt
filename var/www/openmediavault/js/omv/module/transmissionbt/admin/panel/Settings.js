@@ -56,31 +56,31 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.SettingsPanel, OMV.FormPanel
 			},{
 				xtype: "checkbox",
 				name: "pexenabled",
-				fieldLabel: _("Peer exchange"),
+				fieldLabel: _("Peer exchange (PEX)"),
 				checked: true,
 				inputValue: 1,
-				boxLabel: _("Enable peer exchange (PEX).")
+				boxLabel: _("Enable PEX.")
 			},{
 				xtype: "checkbox",
 				name: "dhtenabled",
 				fieldLabel: _("Distributed hash table (DHT)."),
 				checked: true,
 				inputValue: 1,
-				boxLabel: _("Enable distributed hash table.")
+				boxLabel: _("Enable DHT.")
 			},{
 				xtype: "checkbox",
 				name: "lpd-enabled",
 				fieldLabel: _("Local Peer Discovery (LPD)."),
 				checked: false,
 				inputValue: 1,
-				boxLabel: _("Enable local peer discovery.")
+				boxLabel: _("Enable LPD.")
 			},{
 				xtype: "checkbox",
 				name: "utp-enabled",
 				fieldLabel: _("Micro Transport Protocol (&micro;TP)."),
 				checked: true,
 				inputValue: 1,
-				boxLabel: _("Enable micro transport protocol.")
+				boxLabel: _("Enable &micro;TP.")
 			},{
 				xtype: "combo",
 				name: "encryption",
