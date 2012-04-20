@@ -1,29 +1,14 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-# This file is part of OpenMediaVault.
-#
-# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
-# @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
-#
-# OpenMediaVault is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# any later version.
-#
-# OpenMediaVault is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-transmissionbt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-15 20:08+0100\n"
+"POT-Creation-Date: 2012-04-20 16:36+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -71,6 +56,9 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
+msgid "Checking files"
+msgstr ""
+
 msgid "DL-Rate"
 msgstr ""
 
@@ -107,6 +95,9 @@ msgstr ""
 msgid "Deleting torrent ..."
 msgstr ""
 
+msgid "Directory"
+msgstr ""
+
 msgid "Directory to keep downloads. If incomplete is enabled, only complete downloads will be stored here."
 msgstr ""
 
@@ -125,13 +116,25 @@ msgstr ""
 msgid "Download Queue"
 msgstr ""
 
-msgid "Download directory"
+msgid "Downloading"
 msgstr ""
 
 msgid "ETA"
 msgstr ""
 
 msgid "Enable"
+msgstr ""
+
+msgid "Enable &micro;TP."
+msgstr ""
+
+msgid "Enable DHT."
+msgstr ""
+
+msgid "Enable LPD."
+msgstr ""
+
+msgid "Enable PEX."
 msgstr ""
 
 msgid "Enable Turtle Mode."
@@ -173,6 +176,9 @@ msgstr ""
 msgid "End"
 msgstr ""
 
+msgid "Enter path to script."
+msgstr ""
+
 msgid "Error"
 msgstr ""
 
@@ -186,6 +192,9 @@ msgid "Files"
 msgstr ""
 
 msgid "Files and Locations"
+msgstr ""
+
+msgid "Forced"
 msgstr ""
 
 msgid "Friday"
@@ -227,13 +236,13 @@ msgstr ""
 msgid "Idle Minutes"
 msgstr ""
 
-msgid "Incomplete"
-msgstr ""
-
-msgid "Incomplete directory"
+msgid "Infinite"
 msgstr ""
 
 msgid "Info"
+msgstr ""
+
+msgid "Invalid Uri."
 msgstr ""
 
 msgid "Jobs"
@@ -275,6 +284,9 @@ msgstr ""
 msgid "Micro Transport Protocol (&micro;TP)."
 msgstr ""
 
+msgid "Missing Status: "
+msgstr ""
+
 msgid "Mode for preallocating files."
 msgstr ""
 
@@ -288,6 +300,9 @@ msgid "Name"
 msgstr ""
 
 msgid "None"
+msgstr ""
+
+msgid "Not available"
 msgstr ""
 
 msgid "OK"
@@ -312,6 +327,9 @@ msgid "Peer Ports"
 msgstr ""
 
 msgid "Peer exchange"
+msgstr ""
+
+msgid "Peer exchange (PEX)"
 msgstr ""
 
 msgid "Peer port"
@@ -344,6 +362,9 @@ msgstr ""
 msgid "Preallocation"
 msgstr ""
 
+msgid "Preferred"
+msgstr ""
+
 msgid "Queue"
 msgstr ""
 
@@ -363,6 +384,15 @@ msgid "Queue Stalled"
 msgstr ""
 
 msgid "Queue moving selcted item(s)"
+msgstr ""
+
+msgid "Queued to check files"
+msgstr ""
+
+msgid "Queued to download"
+msgstr ""
+
+msgid "Queued to seed"
 msgstr ""
 
 msgid "Queuing"
@@ -404,6 +434,9 @@ msgstr ""
 msgid "Resuming selected item(s)"
 msgstr ""
 
+msgid "Run a script at torrent completion."
+msgstr ""
+
 msgid "Saturday"
 msgstr ""
 
@@ -413,10 +446,19 @@ msgstr ""
 msgid "Scrape paused torrents."
 msgstr ""
 
+msgid "Script"
+msgstr ""
+
+msgid "Script to Proccess After Torrent Finishes"
+msgstr ""
+
 msgid "Seed"
 msgstr ""
 
 msgid "Seed Queue"
+msgstr ""
+
+msgid "Seeding"
 msgstr ""
 
 msgid "Seeding Limit"
@@ -485,6 +527,9 @@ msgstr ""
 msgid "Torrent List"
 msgstr ""
 
+msgid "Torrent is stopped"
+msgstr ""
+
 msgid "Torrents that have not shared data for queue-stalled-minutes are treated as 'stalled' and are not counted against the queue-download-size and seed-queue-size limits."
 msgstr ""
 
@@ -521,6 +566,9 @@ msgstr ""
 msgid "Umask"
 msgstr ""
 
+msgid "Unknown"
+msgstr ""
+
 msgid "Update blocklists automatically."
 msgstr ""
 
@@ -554,13 +602,7 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
-msgid "Watch"
-msgstr ""
-
 msgid "Watch a directory for torrent files and add them to transmission"
-msgstr ""
-
-msgid "Watch directory"
 msgstr ""
 
 msgid "Wednesday"
