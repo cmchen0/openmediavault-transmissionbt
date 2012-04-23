@@ -1,3 +1,10 @@
+openmediavault-transmissionbt (0.3.2) stable; urgency=low
+
+  * Added Translations
+  * Github Issue Fix #35 - Lowercase all file names
+
+ -- Marcel Beck <marcel.beck@mbeck.org>  Mon, 23 Apr 2012 21:13:42 +0200
+
 openmediavault-transmissionbt (0.3.1) stable; urgency=low
 
   * Github Issue Fix #39 - OMV 0.3 compatibility
