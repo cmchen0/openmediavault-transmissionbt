@@ -8,14 +8,14 @@
 
 // require("js/omv/NavigationPanel.js")
 
-// require("js/omv/module/transmissionbt/NavigationPanel.js")
+// require("js/omv/module/transmissionbt/navigation/panel.js")
 
-// require("js/omv/module/transmissionbt/admin/panel/Settings.js")
-// require("js/omv/module/transmissionbt/admin/panel/FilesAndLocations.js")
-// require("js/omv/module/transmissionbt/admin/panel/Peer.js")
-// require("js/omv/module/transmissionbt/admin/panel/Bandwidth.js")
-// require("js/omv/module/transmissionbt/admin/panel/Queueing.js")
-// require("js/omv/module/transmissionbt/admin/panel/Scheduling.js")
+// require("js/omv/module/transmissionbt/admin/panel/settings.js")
+// require("js/omv/module/transmissionbt/admin/panel/files_and_locations.js")
+// require("js/omv/module/transmissionbt/admin/panel/peer.js")
+// require("js/omv/module/transmissionbt/admin/panel/bandwidth.js")
+// require("js/omv/module/transmissionbt/admin/panel/queueing.js")
+// require("js/omv/module/transmissionbt/admin/panel/scheduling.js")
 
 Ext.ns("OMV.Module.Services.TransmissionBT.Admin");
 

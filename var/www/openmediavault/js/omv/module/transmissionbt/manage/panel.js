@@ -8,9 +8,9 @@
 
 // require("js/omv/NavigationPanel.js")
 
-// require("js/omv/module/transmissionbt/NavigationPanel.js")
+// require("js/omv/module/transmissionbt/navigation/panel.js")
 
-// require("js/omv/module/transmissionbt/manage/grid/List.js")
+// require("js/omv/module/transmissionbt/manage/grid/list.js")
 
 Ext.ns("OMV.Module.Services.TransmissionBT.Manage");
 

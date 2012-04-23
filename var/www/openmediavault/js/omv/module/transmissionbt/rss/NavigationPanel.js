@@ -5,7 +5,7 @@
  * Time: 20:38
  * To change this template use File | Settings | File Templates.
  */
-// require("js/omv/module/transmissionbt/NavigationPanel.js")
+// require("js/omv/module/transmissionbt/navigation/panel.js")
 
 // Register the menu.
 OMV.NavigationPanelMgr.registerMenu("transmissionbt", "rss", {
