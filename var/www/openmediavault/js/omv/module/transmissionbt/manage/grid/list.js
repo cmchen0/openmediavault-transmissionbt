@@ -493,8 +493,7 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Manage.TorrentListGrid, OMV.grid.T
 	 * Reload the grid content.
 	 */
 	doReload : function() {
-		OMV.Ajax.request(this.enableReload, this, "TransmissionBT",
-		  "getStatus");
+		OMV.Ajax.request(this.enableReload, this, "TransmissionBT", "getStatus");
 	},
 
 	cbReloadBtnHdl : function() {
@@ -582,8 +581,7 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Manage.TorrentListGrid, OMV.grid.T
 		this.doDelete(record, delete_local_data);
 	},
 	doDelete : function(record, delete_local_data) {
-		OMV.Ajax.request(this.cbDeleteHdl, this, "TransmissionBT", "delete",
-		  { "id": record.get("id"), "deleteLocalData": delete_local_data });
+		OMV.Ajax.request(this.cbDeleteHdl, this, "TransmissionBT", "delete", { "id": record.get("id"), "deleteLocalData": delete_local_data });
 	},
 	updateDeleteProgress : function() {
 		// Calculate percentage
@@ -645,8 +643,7 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Manage.TorrentListGrid, OMV.grid.T
 		this.doResume(record);
 	},
 	doResume : function(record) {
-		OMV.Ajax.request(this.cbResumeHdl, this, "TransmissionBT", "resume",
-		  { "id": record.get("id") });
+		OMV.Ajax.request(this.cbResumeHdl, this, "TransmissionBT", "resume", { "id": record.get("id") });
 	},
 	updateResumeProgress : function() {
 		// Calculate percentage
@@ -708,13 +705,11 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Manage.TorrentListGrid, OMV.grid.T
 		this.doPause(record);
 	},
 	doPause : function(record) {
-		OMV.Ajax.request(this.cbPauseHdl, this, "TransmissionBT", "pause",
-		  { "id": record.get("id") });
+		OMV.Ajax.request(this.cbPauseHdl, this, "TransmissionBT", "pause", { "id": record.get("id") });
 	},
 	updatePauseProgress : function() {
 		// Calculate percentage
-		var p = (this.pauseActionInfo.count - this.pauseActionInfo.records.length) /
-		  this.pauseActionInfo.count;
+		var p = (this.pauseActionInfo.count - this.pauseActionInfo.records.length) / this.pauseActionInfo.count;
 		// Create message text
 		var text = Math.round(100 * p) + "% completed ...";
 		// Update progress dialog
@@ -773,13 +768,11 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Manage.TorrentListGrid, OMV.grid.T
 		this.doQueueMove(record, action);
 	},
 	doQueueMove : function(record, action) {
-		OMV.Ajax.request(this.cbQueueMoveHdl, this, "TransmissionBT",
-		  "queueMove", { "id": record.get("id"), "action": action });
+		OMV.Ajax.request(this.cbQueueMoveHdl, this, "TransmissionBT", "queueMove", { "id": record.get("id"), "action": action });
 	},
 	updateQueueMoveProgress : function() {
 		// Calculate percentage
-		var p = (this.queueMoveActionInfo.count - this.queueMoveActionInfo.records.length) /
-		  this.queueMoveActionInfo.count;
+		var p = (this.queueMoveActionInfo.count - this.queueMoveActionInfo.records.length) / this.queueMoveActionInfo.count;
 		// Create message text
 		var text = Math.round(100 * p) + "% completed ...";
 		// Update progress dialog
