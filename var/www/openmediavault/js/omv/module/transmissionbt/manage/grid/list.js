@@ -28,7 +28,7 @@
 // require("js/omv/util/Format.js")
 // require("js/omv/ExecCmdDialog.js")
 
-// require("js/omv/module/transmissionbt/util/Format.js")
+// require("js/omv/module/transmissionbt/util/format.js")
 
 // require("js/omv/module/transmissionbt/manage/dialog/upload.js")
 // require("js/omv/module/transmissionbt/manage/dialog/delete.js")
