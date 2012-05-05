@@ -50,7 +50,7 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.FilesAndLocationsPanel, OMV.
 			},
 			items: [{
 				xtype: "fieldset",
-				title: "Download",
+				title: _("Download"),
 				defaults: {
 					labelSeparator: ""
 				},
@@ -71,7 +71,7 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.FilesAndLocationsPanel, OMV.
 				}]
 			},{
 				xtype: "fieldset",
-				title: "Incomplete",
+				title: _("Incomplete"),
 				defaults: {
 					labelSeparator: ""
 				},
@@ -99,7 +99,7 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.FilesAndLocationsPanel, OMV.
 				}]
 			},{
 				xtype: "fieldset",
-				title: "Watch",
+				title: _("Watch"),
 				defaults: {
 					labelSeparator: ""
 				},
