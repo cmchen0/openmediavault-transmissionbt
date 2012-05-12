@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OMV Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-23 21:06+0200\n"
-"PO-Revision-Date: 2012-04-22 08:39+0000\n"
+"POT-Creation-Date: 2012-05-12 11:28+0200\n"
+"PO-Revision-Date: 2012-05-06 22:06+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.net/projects/p/OMVPlugins/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -146,26 +146,14 @@ msgstr "Habilitar modo tortuga"
 msgid "Enable Watch directory."
 msgstr "Havilitar directorio a vigilar"
 
-msgid "Enable distributed hash table."
-msgstr "Habilitar tabla de hash distribuido"
-
 msgid "Enable download limit."
 msgstr "Habilitar limite de descarga."
 
 msgid "Enable incomplete directory."
 msgstr "Habilitar directorio de incompletos."
 
-msgid "Enable local peer discovery."
-msgstr "Habilitar descubrimiento de pares locales."
-
-msgid "Enable micro transport protocol."
-msgstr "Habilitar protocolo de transporte micro"
-
 msgid "Enable paused torrent scraping."
 msgstr "Habilitar limpieza de torrent pausados."
-
-msgid "Enable peer exchange (PEX)."
-msgstr "Habilitar intercambio de pares (PEX)"
 
 msgid "Enable port forwarding via NAT-PMP or UPnP."
 msgstr "Habilitar port forwarding atraves de UPnP o NAT-PMP"
@@ -238,6 +226,9 @@ msgstr "Inactivo"
 
 msgid "Idle Minutes"
 msgstr "inutos inactivo"
+
+msgid "Incomplete"
+msgstr "Incompletos"
 
 msgid "Infinite"
 msgstr "Infinito"
@@ -330,9 +321,6 @@ msgstr "Par"
 
 msgid "Peer Ports"
 msgstr "Puertos del par"
-
-msgid "Peer exchange"
-msgstr "Intercambio de pares"
 
 msgid "Peer exchange (PEX)"
 msgstr "Intercambio de pares (PEX)"
@@ -612,6 +600,9 @@ msgstr "Usado para la autentificación de los clientes."
 
 msgid "Username"
 msgstr "Nombre de usuario"
+
+msgid "Watch"
+msgstr "Vigilado (Watch)"
 
 msgid "Watch a directory for torrent files and add them to transmission"
 msgstr "Directorio a vigilar , si se añade un torrent se añadira a la cola de transmission"

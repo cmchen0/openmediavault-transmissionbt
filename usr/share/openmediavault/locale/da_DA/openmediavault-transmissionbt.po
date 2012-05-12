@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OMV Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-23 21:06+0200\n"
-"PO-Revision-Date: 2012-04-24 21:03+0000\n"
+"POT-Creation-Date: 2012-05-12 11:28+0200\n"
+"PO-Revision-Date: 2012-05-09 16:36+0000\n"
 "Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.net/projects/p/OMVPlugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -146,26 +146,14 @@ msgstr "Aktiver Turtle Modus."
 msgid "Enable Watch directory."
 msgstr "Aktiver Overvågnings mappe."
 
-msgid "Enable distributed hash table."
-msgstr "Aktiver distribueret hashtabel."
-
 msgid "Enable download limit."
 msgstr "Aktiver download grænse"
 
 msgid "Enable incomplete directory."
 msgstr "Aktiver ufærdig mappe."
 
-msgid "Enable local peer discovery."
-msgstr "Aktiver lokal peer mappe."
-
-msgid "Enable micro transport protocol."
-msgstr "Aktiver micro transport protokol."
-
 msgid "Enable paused torrent scraping."
 msgstr "Aktiver pauset torrent høstning."
-
-msgid "Enable peer exchange (PEX)."
-msgstr "Aktiver peer-udveksling (PEX)."
 
 msgid "Enable port forwarding via NAT-PMP or UPnP."
 msgstr "Aktiver port forwarding via NAT-PMP eller UPnP."
@@ -231,13 +219,16 @@ msgid "IPv6"
 msgstr "IPv6"
 
 msgid "IPv6 address to listen on. Use :: for all host IPs."
-msgstr "IPv6 addresse der skal lyttse på. Brug :: til alle værts IPer."
+msgstr "IPv6 addresse der skal lyttes på. Brug :: til alle værts IPer."
 
 msgid "Idle"
 msgstr "Ledig"
 
 msgid "Idle Minutes"
 msgstr "Ledige Minutter"
+
+msgid "Incomplete"
+msgstr "Ufærdige"
 
 msgid "Infinite"
 msgstr "Uendelig"
@@ -255,10 +246,10 @@ msgid "Lazy Bitfield"
 msgstr "Doven Bitfelt"
 
 msgid "Limit Download"
-msgstr "Grænse Download"
+msgstr "Download Grænse"
 
 msgid "Limit Upload"
-msgstr "Grænse Upload"
+msgstr "Upload Grænse"
 
 msgid "Limit download speed. Value is kb/s."
 msgstr "Download hastigheds grænse. Værdi er i kb/s."
@@ -317,7 +308,7 @@ msgid "Off"
 msgstr "Fra"
 
 msgid "Password"
-msgstr "Kodeord"
+msgstr "Adgangskode"
 
 msgid "Pause"
 msgstr "Pause"
@@ -330,9 +321,6 @@ msgstr "Peer"
 
 msgid "Peer Ports"
 msgstr "Peer Porte"
-
-msgid "Peer exchange"
-msgstr "Peer-udveksling"
 
 msgid "Peer exchange (PEX)"
 msgstr "Peer-udveksling (PEX)"
@@ -353,10 +341,10 @@ msgid "Port forwarding"
 msgstr "Port forwarding"
 
 msgid "Port to listen for incoming peer connections."
-msgstr "Port at lytte til for indgående peer forbindelser."
+msgstr "Port til at lytte på for indgående peer forbindelser."
 
 msgid "Port to open and listen for RPC/Web requests on."
-msgstr "Port til at åbne og lytte til for RPC / Web anmodninger på."
+msgstr "Port til at åbne og lytte på for RPC / Web anmodninger."
 
 msgid "Postfix"
 msgstr "Postfix"
@@ -467,7 +455,7 @@ msgid "Seeding"
 msgstr "Seeder"
 
 msgid "Seeding Limit"
-msgstr "Seede Grænse"
+msgstr "Seed Grænse"
 
 msgid "Server"
 msgstr "Server"
@@ -509,7 +497,7 @@ msgid "Status"
 msgstr "Status"
 
 msgid "Stop seeding after being idle for N minutes."
-msgstr "Stop med at seede efter at være ledig i N minutter."
+msgstr "Stop med at seede efter at have været ledig i N minutter."
 
 msgid "Sunday"
 msgstr "Søndag"
@@ -613,6 +601,9 @@ msgstr "Brugt til klient godkendelse."
 msgid "Username"
 msgstr "Brugernavn"
 
+msgid "Watch"
+msgstr "Overvåg"
+
 msgid "Watch a directory for torrent files and add them to transmission"
 msgstr "Overvåg en mappe efter torrent filer og tilføj dem til transmission"
 
@@ -623,7 +614,7 @@ msgid "Weekly"
 msgstr "Ugenligt"
 
 msgid "When enabled, this will toggle the Turtle Mode."
-msgstr "Når aktiveret, vil det skifte Turtle Modus."
+msgstr "Når aktiveret, vil dettte skifte Turtle Modus."
 
 msgid "default"
 msgstr "Standard"
