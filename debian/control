@@ -5,7 +5,7 @@ Maintainer: Marcel Beck <marcel.beck@mbeck.org>
  Volker Theile <volker.theile@openmediavault.org>
 Build-Depends: debhelper (>> 7)
 Standards-Version: 3.6.10
-Homepage: https://omv-plugins.org
+Homepage: http://omv-plugins.org
 
 Package: openmediavault-transmissionbt
 Architecture: all
