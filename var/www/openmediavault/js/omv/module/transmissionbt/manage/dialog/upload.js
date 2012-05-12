@@ -4,7 +4,7 @@
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Marcel Beck <marcel.beck@mbeck.org>
  * @copyright Copyright (c) 2011-2012 Marcel Beck
- * @website 	http://omv-plugins.org
+ * @website   http://omv-plugins.org
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -32,75 +32,83 @@ Ext.ns("OMV.TransmissionBT");
  * @config params Additional RPC method parameters.
  * @config waitMsg The displayed waiting message.
  */
-OMV.TransmissionBT.UploadDialog = function(config) {
+OMV.TransmissionBT.UploadDialog = function (config) {
 	var initialConfig = {
-		url: "upload.php",
-		title: _("Upload file"),
-		waitMsg: _("Uploading file ..."),
-		width: 450,
-		autoHeight: true,
-		layout: "fit",
-		modal: true,
-		border: false,
-		buttonAlign: "center",
-		buttons: [{
-			text: _("OK"),
-			handler: this.cbOkBtnHdl.createDelegate(this),
-			scope: this
-		},{
-			text: _("Cancel"),
-			handler: this.cbCancelBtnHdl.createDelegate(this),
-			scope: this
-		}]
+		url        :"upload.php",
+		title      :_("Upload file"),
+		waitMsg    :_("Uploading file ..."),
+		width      :450,
+		autoHeight :true,
+		layout     :"fit",
+		modal      :true,
+		border     :false,
+		buttonAlign:"center",
+		buttons    :[
+			{
+				text   :_("OK"),
+				handler:this.cbOkBtnHdl.createDelegate(this),
+				scope  :this
+			},
+			{
+				text   :_("Cancel"),
+				handler:this.cbCancelBtnHdl.createDelegate(this),
+				scope  :this
+			}
+		]
 	};
 	Ext.apply(initialConfig, config);
 	OMV.TransmissionBT.UploadDialog.superclass.constructor.call(this, initialConfig);
 	this.addEvents(
-		/**
-		 * Fires after the installation has been finished successful.
-		 */
-		"success"
+					/**
+					 * Fires after the installation has been finished successful.
+					 */
+					"success"
 	);
 };
 Ext.extend(OMV.TransmissionBT.UploadDialog, OMV.Window, {
-	initComponent : function() {
+	initComponent:function () {
 		this.form = new Ext.form.FormPanel({
-			frame: true,
-			border: false,
-			layout: "form",
-			defaults: {
-				anchor: "100%",
-				labelSeparator: ""
+			frame     :true,
+			border    :false,
+			layout    :"form",
+			defaults  :{
+				anchor        :"100%",
+				labelSeparator:""
 			},
-			autoHeight: true,
-			fileUpload: true,
-			items: [{
-				xtype: "hidden",
-				name: "service",
-				value: this.service
-			},{
-				xtype: "hidden",
-				name: "method",
-				value: this.method
-			},{
-				xtype: "hidden",
-				name: "params",
-				value: this.params
-			},{
-				xtype: "textfield",
-				name: "file",
-				fieldLabel: _("File"),
-				allowBlank: false,
-				inputType: "file"
-			/*},{
-			// Not Working? Is not sent correctly
-			// @todo read Config
-				xtype: "checkbox",
-				name: "start-download",
-				fieldLabel: _("Start download"),
-				checked: true,
-				inputValue: 1,*/
-			}]
+			autoHeight:true,
+			fileUpload:true,
+			items     :[
+				{
+					xtype:"hidden",
+					name :"service",
+					value:this.service
+				},
+				{
+					xtype:"hidden",
+					name :"method",
+					value:this.method
+				},
+				{
+					xtype:"hidden",
+					name :"params",
+					value:this.params
+				},
+				{
+					xtype     :"textfield",
+					name      :"file",
+					fieldLabel:_("File"),
+					allowBlank:false,
+					inputType :"file"
+					/*},{
+					 // Not Working? Is not sent correctly
+					 // @todo read Config
+					 xtype: "checkbox",
+					 name: "start-download",
+					 fieldLabel: _("Start download"),
+					 checked: true,
+					 inputValue: 1,*/
+				}
+			]
 		});
 		this.items = this.form;
 		OMV.TransmissionBT.UploadDialog.superclass.initComponent.apply(this, arguments);
@@ -110,31 +118,31 @@ Ext.extend(OMV.TransmissionBT.UploadDialog, OMV.Window, {
 	 * @method cbOkBtnHdl
 	 * Method that is called when the 'OK' button is pressed.
 	 */
-	cbOkBtnHdl : function() {
+	cbOkBtnHdl:function () {
 		var basicForm = this.form.getForm();
 		if (!basicForm.isValid()) {
 			return;
 		}
 		basicForm.submit({
-			url: this.url,
-			method: "POST",
-			waitMsg: this.waitMsg,
-			success: function(form, action) {
+			url    :this.url,
+			method :"POST",
+			waitMsg:this.waitMsg,
+			success:function (form, action) {
 				this.fireEvent("success", this, action.result.responseText);
 				this.close();
 			},
-			failure: function(form, action) {
+			failure:function (form, action) {
 				var msg = action.response.responseText;
 				try {
 					// Try to decode JSON data.
 					msg = Ext.util.JSON.decode(action.response.responseText);
-				} catch(e) {
+				} catch (e) {
 					// Decoding JSON has been failed, assume response contains
 					// plain text.
 				}
 				OMV.MessageBox.error(null, msg);
 			},
-			scope: this
+			scope  :this
 		});
 	},
 
@@ -142,7 +150,7 @@ Ext.extend(OMV.TransmissionBT.UploadDialog, OMV.Window, {
 	 * @method cbCancelBtnHdl
 	 * Method that is called when the 'Cancel' button is pressed.
 	 */
-	cbCancelBtnHdl : function() {
+	cbCancelBtnHdl:function () {
 		this.close();
 	}
 });

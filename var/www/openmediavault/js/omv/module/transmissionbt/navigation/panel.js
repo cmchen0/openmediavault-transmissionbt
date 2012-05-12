@@ -4,7 +4,7 @@
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Marcel Beck <marcel.beck@mbeck.org>
  * @copyright Copyright (c) 2011-2012 Marcel Beck
- * @website 	http://omv-plugins.org
+ * @website   http://omv-plugins.org
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,7 +23,7 @@
 // require("js/omv/NavigationPanel.js")
 
 OMV.NavigationPanelMgr.registerMenu("services", "transmissionbt", {
-	text: _("BitTorrent"),
-	icon: "images/transmissionbt.png",
-	position: 20
+	text    :_("BitTorrent"),
+	icon    :"images/transmissionbt.png",
+	position:20
 });

@@ -4,7 +4,7 @@
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Marcel Beck <marcel.beck@mbeck.org>
  * @copyright Copyright (c) 2011-2012 Marcel Beck
- * @website 	http://omv-plugins.org
+ * @website   http://omv-plugins.org
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -37,18 +37,18 @@ Ext.ns("OMV.Module.Services.TransmissionBT.Admin");
  * @class OMV.Module.Services.TransmissionBT.Admin.TabPanel
  * @derived Ext.TabPanel
  */
-OMV.Module.Services.TransmissionBT.Admin.TabPanel = function(config) {
+OMV.Module.Services.TransmissionBT.Admin.TabPanel = function (config) {
 	var initialConfig = {
-		border: false,
-		activeTab: 0,
-		layoutOnTabChange: true
+		border           :false,
+		activeTab        :0,
+		layoutOnTabChange:true
 	};
 	Ext.apply(initialConfig, config);
 	OMV.Module.Services.TransmissionBT.Admin.TabPanel.superclass.constructor.call(
-	  this, initialConfig);
+					this, initialConfig);
 };
 Ext.extend(OMV.Module.Services.TransmissionBT.Admin.TabPanel, Ext.TabPanel, {
-	initComponent : function() {
+	initComponent:function () {
 		this.items = [
 			new OMV.Module.Services.TransmissionBT.Admin.SettingsPanel,
 			new OMV.Module.Services.TransmissionBT.Admin.FilesAndLocationsPanel,
@@ -58,11 +58,11 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.TabPanel, Ext.TabPanel, {
 			new OMV.Module.Services.TransmissionBT.Admin.SchedulingPanel
 		];
 		OMV.Module.Services.TransmissionBT.Admin.TabPanel.superclass.initComponent.apply(
-		  this, arguments);
+						this, arguments);
 	}
 });
 OMV.NavigationPanelMgr.registerPanel("services", "transmissionbt", {
-	cls: OMV.Module.Services.TransmissionBT.Admin.TabPanel,
-	title: _("Server"),
-	position: 20
+	cls     :OMV.Module.Services.TransmissionBT.Admin.TabPanel,
+	title   :_("Server"),
+	position:20
 });
