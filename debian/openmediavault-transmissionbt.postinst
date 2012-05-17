@@ -332,6 +332,9 @@ case "$1" in
     	omv_config_delete "//services/transmissionbt/modules/locationsandfiles/watch-dir-enabled"
     fi
 
+    echo "Add debian-transmission user to group: users"
+    useradd -G users debian-transmission
+
 		echo "Write Config"
 		omv-mkconf transmissionbt 2>&1
 
