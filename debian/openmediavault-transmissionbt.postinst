@@ -333,7 +333,7 @@ case "$1" in
     fi
 
     echo "Add debian-transmission user to group: users"
-    useradd -G users debian-transmission
+    usermod -G users debian-transmission
 
 		echo "Write Config"
 		omv-mkconf transmissionbt 2>&1
