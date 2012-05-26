@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OMV Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-23 21:06+0200\n"
-"PO-Revision-Date: 2012-04-21 14:24+0000\n"
-"Last-Translator: walterheisenberg <walterheisenberg@gmx.com>\n"
+"POT-Creation-Date: 2012-05-26 10:03+0200\n"
+"PO-Revision-Date: 2012-05-05 13:15+0000\n"
+"Last-Translator: Marcel Beck <fo3nik5@gmail.com>\n"
 "Language-Team: German (http://www.transifex.net/projects/p/OMVPlugins/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -133,13 +133,13 @@ msgid "Enable &micro;TP."
 msgstr ""
 
 msgid "Enable DHT."
-msgstr ""
+msgstr "DHT aktivieren"
 
 msgid "Enable LPD."
-msgstr ""
+msgstr "LPD aktivieren"
 
 msgid "Enable PEX."
-msgstr ""
+msgstr "EPX aktivieren"
 
 msgid "Enable Turtle Mode."
 msgstr "Aktiviere Schildkröten Modus."
@@ -147,26 +147,14 @@ msgstr "Aktiviere Schildkröten Modus."
 msgid "Enable Watch directory."
 msgstr "Aktiviere Watch Verzeichnis"
 
-msgid "Enable distributed hash table."
-msgstr "Aktiviere DHT."
-
 msgid "Enable download limit."
 msgstr "Aktiviere Download Limit"
 
 msgid "Enable incomplete directory."
 msgstr "Aktiviere incomplete Verzeichnis"
 
-msgid "Enable local peer discovery."
-msgstr "Aktiviere LPD"
-
-msgid "Enable micro transport protocol."
-msgstr "Aktiviere UTP"
-
 msgid "Enable paused torrent scraping."
 msgstr ""
-
-msgid "Enable peer exchange (PEX)."
-msgstr "Aktiviere Peer-Austausch (PEX)"
 
 msgid "Enable port forwarding via NAT-PMP or UPnP."
 msgstr "Port-Weiterleitung via NAT-PMP oder UPnP einschalten"
@@ -239,6 +227,9 @@ msgstr "Leerlauf"
 
 msgid "Idle Minutes"
 msgstr "Leerlauf Minuten"
+
+msgid "Incomplete"
+msgstr ""
 
 msgid "Infinite"
 msgstr "Unendlich"
@@ -332,9 +323,6 @@ msgstr "Peer"
 msgid "Peer Ports"
 msgstr "Peer Ports"
 
-msgid "Peer exchange"
-msgstr "Peer Austausch"
-
 msgid "Peer exchange (PEX)"
 msgstr ""
 
@@ -351,19 +339,19 @@ msgid "Port"
 msgstr "Port"
 
 msgid "Port forwarding"
-msgstr ""
+msgstr "Port-Weiterleitung"
 
 msgid "Port to listen for incoming peer connections."
-msgstr ""
+msgstr "Port zum Lauschen auf eingehende Peer-Verbindungen"
 
 msgid "Port to open and listen for RPC/Web requests on."
-msgstr ""
+msgstr "Port zum öffnen und lauschen für RPC/Web-Anfragen"
 
 msgid "Postfix"
 msgstr "Postfix"
 
 msgid "Postfix partially downloaded files with .part."
-msgstr ""
+msgstr "nicht-fertige Downloads mit .part benennen"
 
 msgid "Preallocation"
 msgstr "Preallocation"
@@ -372,19 +360,19 @@ msgid "Preferred"
 msgstr "Bevorzugt"
 
 msgid "Queue"
-msgstr ""
+msgstr "Warteschlange"
 
 msgid "Queue Move Bottom"
-msgstr ""
+msgstr "In der Warteschlange ganz nach unten"
 
 msgid "Queue Move Down"
-msgstr ""
+msgstr "In der Warteschlange nach unten"
 
 msgid "Queue Move Top"
-msgstr ""
+msgstr "In der Warteschlange ganz nach oben"
 
 msgid "Queue Move Up"
-msgstr ""
+msgstr "In der Warteschlange nach oben"
 
 msgid "Queue Stalled"
 msgstr ""
@@ -405,16 +393,16 @@ msgid "Queuing"
 msgstr ""
 
 msgid "RPC/WebUI Settings"
-msgstr ""
+msgstr "RPC/WebUI Einstellungen"
 
 msgid "RSS"
-msgstr ""
+msgstr "RSS"
 
 msgid "Random Port"
-msgstr ""
+msgstr "zufälliger Port"
 
 msgid "Random Port on start."
-msgstr ""
+msgstr "zufälliger Port beim Start"
 
 msgid "Random high"
 msgstr ""
@@ -423,7 +411,7 @@ msgid "Random low"
 msgstr ""
 
 msgid "Ratio"
-msgstr ""
+msgstr "Ratio"
 
 msgid "Ratio Limit"
 msgstr ""
@@ -435,7 +423,7 @@ msgid "Require clients to authenticate themselves."
 msgstr ""
 
 msgid "Resume"
-msgstr ""
+msgstr "Wiederaufnehmen"
 
 msgid "Resuming selected item(s)"
 msgstr ""
@@ -444,7 +432,7 @@ msgid "Run a script at torrent completion."
 msgstr ""
 
 msgid "Saturday"
-msgstr ""
+msgstr "Samstag"
 
 msgid "Scheduling"
 msgstr ""
@@ -453,10 +441,10 @@ msgid "Scrape paused torrents."
 msgstr ""
 
 msgid "Script"
-msgstr ""
+msgstr "Script"
 
 msgid "Script to Proccess After Torrent Finishes"
-msgstr ""
+msgstr "Script nach dem Fertigstellen eines Torrents ausführen"
 
 msgid "Seed"
 msgstr ""
@@ -471,7 +459,7 @@ msgid "Seeding Limit"
 msgstr ""
 
 msgid "Server"
-msgstr ""
+msgstr "Server"
 
 msgid "Set verbosity of transmission messages."
 msgstr ""
@@ -480,19 +468,19 @@ msgid "Sets transmission's file mode creation mask."
 msgstr ""
 
 msgid "Settings"
-msgstr ""
+msgstr "Einstellungen"
 
 msgid "Shared folder"
 msgstr ""
 
 msgid "Size"
-msgstr ""
+msgstr "Größe"
 
 msgid "Socket TOS"
 msgstr ""
 
 msgid "Speed"
-msgstr ""
+msgstr "Geschwindigkeit"
 
 msgid "Stalled Minutes"
 msgstr ""
@@ -570,58 +558,61 @@ msgid "Turtle Mode upload speed. Value is kb/s."
 msgstr ""
 
 msgid "UL-Rate"
-msgstr ""
+msgstr "UL-Rate"
 
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 msgid "Umask"
-msgstr ""
+msgstr "Umask"
 
 msgid "Unknown"
-msgstr ""
+msgstr "Unbekannt"
 
 msgid "Update blocklists automatically."
-msgstr ""
+msgstr "Blocklisten automatisch updaten"
 
 msgid "Upload"
-msgstr ""
+msgstr "Upload"
 
 msgid "Upload file"
-msgstr ""
+msgstr "Datei uploaden"
 
 msgid "Upload slots"
-msgstr ""
+msgstr "Upload Slots"
 
 msgid "Upload torrent"
-msgstr ""
+msgstr "Torrent hochladen"
 
 msgid "Uploading file ..."
-msgstr ""
+msgstr "Datei wird hochgeladen ..."
 
 msgid "Uri"
-msgstr ""
+msgstr "Uri"
 
 msgid "Url to access RPC (http://localhost/&lt;URI&gt;/(rpc|web)."
 msgstr ""
 
 msgid "Use blocklists."
-msgstr ""
+msgstr "Blocklisten benutzen"
 
 msgid "Used for client authentication."
 msgstr ""
 
 msgid "Username"
+msgstr "Benutzername"
+
+msgid "Watch"
 msgstr ""
 
 msgid "Watch a directory for torrent files and add them to transmission"
 msgstr ""
 
 msgid "Wednesday"
-msgstr ""
+msgstr "Mittwoch"
 
 msgid "Weekly"
-msgstr ""
+msgstr "Wöchentlich"
 
 msgid "When enabled, this will toggle the Turtle Mode."
 msgstr ""
