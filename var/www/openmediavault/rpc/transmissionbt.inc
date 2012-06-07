@@ -2,9 +2,9 @@
 /**
  * This file is part of OpenMediaVault.
  *
- * @license	 http://www.gnu.org/licenses/gpl.html GPL Version 3
- * @author		Volker Theile <volker.theile@openmediavault.org>
- * @author		Marcel Beck <marcel.beck@mbeck.org>
+ * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @author    Volker Theile <volker.theile@openmediavault.org>
+ * @author    Marcel Beck <marcel.beck@mbeck.org>
  * @copyright Copyright (c) 2009-2012 Volker Theile
  * @copyright Copyright (c) 2011-2012 Marcel Beck
  *
@@ -15,7 +15,7 @@
  *
  * OpenMediaVault is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
@@ -34,7 +34,7 @@ class TransmissionBTRpc extends OMVRpc {
 	public function __construct()
 	{
 		$this->methodSchemata = array(
-			"setSettings"					=> array(
+			"setSettings"          => array(
 				'{
 				"type":"object",
 				"properties":{
@@ -82,7 +82,7 @@ class TransmissionBTRpc extends OMVRpc {
 				}
 			}'
 			),
-			"setBandwidth"				 => array(
+			"setBandwidth"         => array(
 				'{
 				"type":"object",
 				"properties":{
@@ -97,7 +97,7 @@ class TransmissionBTRpc extends OMVRpc {
 				}
 			}'
 			),
-			"setQueuing"					 => array(
+			"setQueuing"           => array(
 				'{
 				"type":"object",
 				"properties":{
@@ -110,7 +110,7 @@ class TransmissionBTRpc extends OMVRpc {
 				}
 			}'
 			),
-			"setPeer"							=> array(
+			"setPeer"              => array(
 				'{
 				"type":"object",
 				"properties":{
@@ -127,7 +127,7 @@ class TransmissionBTRpc extends OMVRpc {
 				}
 			}'
 			),
-			"setScheduling"				=> array(
+			"setScheduling"        => array(
 				'{
 				"type":"object",
 				"properties":{
@@ -150,14 +150,18 @@ class TransmissionBTRpc extends OMVRpc {
 				}
 			}'
 			),
-			"getList"							=> array(
-				'{"type":"integer"}', // start
-				'{"type":"integer"}', // count
-				'{' . $GLOBALS['OMV_JSONSCHEMA_SORTFIELD'] . '}', // sortField
-				'{' . $GLOBALS['OMV_JSONSCHEMA_SORTDIR'] . '}', // sortDir
-				'{"type":"array","items":{"type":"string"}}' // types
+			"getList"              => array(
+				'{
+					"type":"object",
+					"properties":{
+						"start":{"type":"integer"},
+						"limit":{' . $GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'] . '},
+						"sortfield":{' . $GLOBALS['OMV_JSONSCHEMA_SORTFIELD'] . '},
+						"sortdir":{' . $GLOBALS['OMV_JSONSCHEMA_SORTDIR'] . '}
+					}
+				}'
 			),
-			"delete"							 => array(
+			"delete"               => array(
 				'{
 				"type":"object",
 				"properties":{
@@ -166,16 +170,23 @@ class TransmissionBTRpc extends OMVRpc {
 				}
 			}'
 			),
-			"pause"								=> array(
-				'{"type":"integer", "minimum":0}'
+			"pause"                => array(
+				'{
+					"type":"object",
+					"properties":{
+						"id":{"type":"integer", "minimum":0}
+					}
+				}'
 			),
-			"resume"							 => array(
-				'{"type":"integer", "minimum":0}'
+			"resume"               => array(
+				'{
+					"type":"object",
+					"properties":{
+						"id":{"type":"integer", "minimum":0}
+					}
+				}'
 			),
-			"upload"							 => array(
-				'{"type":"boolean"}'
-			),
-			"queueMove"						=> array(
+			"queueMove"            => array(
 				'{
 				"type":"object",
 				"properties":{
@@ -184,7 +195,7 @@ class TransmissionBTRpc extends OMVRpc {
 				}
 			}'
 			),
-			"addUrl"							 => array(
+			"addUrl"               => array(
 				'{
 				"type":"object",
 				"properties":{
@@ -221,7 +232,7 @@ class TransmissionBTRpc extends OMVRpc {
 		if (is_null($object))
 		{
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-				$xpath);
+														 $xpath);
 		}
 		// Modify result data
 		$object['enable']                         = boolval($object['enable']);
@@ -267,33 +278,33 @@ class TransmissionBTRpc extends OMVRpc {
 		if (is_null($oldObject))
 		{
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-				$xpath);
+														 $xpath);
 		}
 		// Prepare configuration data
 		$object = array(
-			"enable"												 => array_boolval($data, 'enable'),
-			"pexenabled"										 => array_boolval($data, 'pexenabled'),
-			"dhtenabled"										 => array_boolval($data, 'dhtenabled'),
-			"encryption"										 => $data['encryption'],
-			"rpcurl"												 => '/' . $data['rpcurl'] . '/',
-			"rpcport"												=> $data['rpcport'],
-			"rpcauthenticationrequired"			=> array_boolval($data, 'rpcauthenticationrequired'),
-			"rpcusername"										=> $data['rpcusername'],
-			"rpcpassword"										=> $data['rpcpassword'],
-			"blocklistenabled"							 => array_boolval($data, 'blocklistenabled'),
-			"blocklistsyncenabled"					 => array_boolval($data, 'blocklistsyncenabled'),
-			"blocklistsyncfrequency"				 => $data['blocklistsyncfrequency'],
-			"blocklisturl"									 => $data['blocklisturl'],
-			"modules"												=> isset($oldObject['modules']) ? $oldObject['modules'] : array(),
-			"lazy-bitfield-enabled"					=> array_boolval($data, 'lazy-bitfield-enabled'),
-			"umask"													=> $data['umask'],
-			"lpd-enabled"										=> array_boolval($data, 'lpd-enabled'),
+			"enable"                         => array_boolval($data, 'enable'),
+			"pexenabled"                     => array_boolval($data, 'pexenabled'),
+			"dhtenabled"                     => array_boolval($data, 'dhtenabled'),
+			"encryption"                     => $data['encryption'],
+			"rpcurl"                         => '/' . $data['rpcurl'] . '/',
+			"rpcport"                        => $data['rpcport'],
+			"rpcauthenticationrequired"      => array_boolval($data, 'rpcauthenticationrequired'),
+			"rpcusername"                    => $data['rpcusername'],
+			"rpcpassword"                    => $data['rpcpassword'],
+			"blocklistenabled"               => array_boolval($data, 'blocklistenabled'),
+			"blocklistsyncenabled"           => array_boolval($data, 'blocklistsyncenabled'),
+			"blocklistsyncfrequency"         => $data['blocklistsyncfrequency'],
+			"blocklisturl"                   => $data['blocklisturl'],
+			"modules"                        => isset($oldObject['modules']) ? $oldObject['modules'] : array(),
+			"lazy-bitfield-enabled"          => array_boolval($data, 'lazy-bitfield-enabled'),
+			"umask"                          => $data['umask'],
+			"lpd-enabled"                    => array_boolval($data, 'lpd-enabled'),
 			"scrape-paused-torrents-enabled" => array_boolval($data, 'scrape-paused-torrents-enabled'),
-			"utp-enabled"										=> array_boolval($data, 'utp-enabled'),
-			"message-level"									=> $data['message-level'],
-			"cache-size-mb"									=> $data['cache-size-mb'],
-			"script-torrent-done-enabled"		=> array_boolval($data, 'script-torrent-done-enabled'),
-			"script-torrent-done-filename"	 => $data['script-torrent-done-filename'],
+			"utp-enabled"                    => array_boolval($data, 'utp-enabled'),
+			"message-level"                  => $data['message-level'],
+			"cache-size-mb"                  => $data['cache-size-mb'],
+			"script-torrent-done-enabled"    => array_boolval($data, 'script-torrent-done-enabled'),
+			"script-torrent-done-filename"   => $data['script-torrent-done-filename'],
 		);
 		// Set configuration object
 		if (FALSE === $xmlConfig->replace($xpath, $object))
@@ -304,7 +315,7 @@ class TransmissionBTRpc extends OMVRpc {
 		if (FALSE === $xmlConfig->save())
 		{
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
-				$xmlConfig->getError());
+														 $xmlConfig->getError());
 		}
 		// Notify configuration changes
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
@@ -331,7 +342,7 @@ class TransmissionBTRpc extends OMVRpc {
 		if (is_null($object))
 		{
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-				$xpath);
+														 $xpath);
 		}
 		// Modify result data
 		// Locations
@@ -374,25 +385,25 @@ class TransmissionBTRpc extends OMVRpc {
 		$object = array(
 			// Locations
 			'paths'                        => array(
-				'download'										 => array(
+				'download'                     => array(
 					'sharedfolderref' => $data['download-sharedfolderref'],
-					'dir'						 => $data['download-dir'],
+					'dir'             => $data['download-dir'],
 				),
-				'incomplete'									 => array(
-					'enabled'				 => array_boolval($data, 'incomplete-dir-enabled'),
+				'incomplete'                   => array(
+					'enabled'         => array_boolval($data, 'incomplete-dir-enabled'),
 					'sharedfolderref' => $data['incomplete-sharedfolderref'],
-					'dir'						 => $data['incomplete-dir'],
+					'dir'             => $data['incomplete-dir'],
 				),
-				'watch'												=> array(
-					'enabled'				 => array_boolval($data, 'watch-dir-enabled'),
+				'watch'                        => array(
+					'enabled'         => array_boolval($data, 'watch-dir-enabled'),
 					'sharedfolderref' => $data['watch-sharedfolderref'],
-					'dir'						 => $data['watch-dir'],
+					'dir'             => $data['watch-dir'],
 				),
 			),
 			// Files
-			"preallocation"								=> $data['preallocation'],
-			"rename-partial-files"				 => array_boolval($data, 'rename-partial-files'),
-			"start-added-torrents"				 => array_boolval($data, 'start-added-torrents'),
+			"preallocation"                => $data['preallocation'],
+			"rename-partial-files"         => array_boolval($data, 'rename-partial-files'),
+			"start-added-torrents"         => array_boolval($data, 'start-added-torrents'),
 			"trash-original-torrent-files" => array_boolval($data, 'trash-original-torrent-files'),
 		);
 		// Set configuration object
@@ -405,7 +416,7 @@ class TransmissionBTRpc extends OMVRpc {
 		if (FALSE === $xmlConfig->save())
 		{
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
-				$xmlConfig->getError());
+														 $xmlConfig->getError());
 		}
 		// Notify configuration changes
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
@@ -432,7 +443,7 @@ class TransmissionBTRpc extends OMVRpc {
 		if (is_null($object))
 		{
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-				$xpath);
+														 $xpath);
 		}
 		// Modify result data
 		// Speed
@@ -468,15 +479,15 @@ class TransmissionBTRpc extends OMVRpc {
 		// Prepare configuration data
 		$object = array(
 			// Speed
-			"speed-limit-down"				 => $data['speed-limit-down'],
+			"speed-limit-down"         => $data['speed-limit-down'],
 			"speed-limit-down-enabled" => array_boolval($data, 'speed-limit-down-enabled'),
-			"speed-limit-up"					 => $data['speed-limit-up'],
-			"speed-limit-up-enabled"	 => array_boolval($data, 'speed-limit-up-enabled'),
+			"speed-limit-up"           => $data['speed-limit-up'],
+			"speed-limit-up-enabled"   => array_boolval($data, 'speed-limit-up-enabled'),
 			"upload-slots-per-torrent" => $data['upload-slots-per-torrent'],
 			// Turtle Mode
-			"alt-speed-enabled"				=> array_boolval($data, 'alt-speed-enabled'),
-			"alt-speed-up"						 => $data['alt-speed-up'],
-			"alt-speed-down"					 => $data['alt-speed-down'],
+			"alt-speed-enabled"        => array_boolval($data, 'alt-speed-enabled'),
+			"alt-speed-up"             => $data['alt-speed-up'],
+			"alt-speed-down"           => $data['alt-speed-down'],
 		);
 		// Set configuration object
 		$xpath = "//services/transmissionbt/modules/bandwidth";
@@ -488,7 +499,7 @@ class TransmissionBTRpc extends OMVRpc {
 		if (FALSE === $xmlConfig->save())
 		{
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
-				$xmlConfig->getError());
+														 $xmlConfig->getError());
 		}
 		// Notify configuration changes
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
@@ -515,7 +526,7 @@ class TransmissionBTRpc extends OMVRpc {
 		if (is_null($object))
 		{
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-				$xpath);
+														 $xpath);
 		}
 		// Modify result data
 		// General
@@ -550,14 +561,14 @@ class TransmissionBTRpc extends OMVRpc {
 		// Prepare configuration data
 		$object = array(
 			// General
-			"queue-stalled-enabled"	=> array_boolval($data, 'queue-stalled-enabled'),
-			"queue-stalled-minutes"	=> $data['queue-stalled-minutes'],
+			"queue-stalled-enabled"  => array_boolval($data, 'queue-stalled-enabled'),
+			"queue-stalled-minutes"  => $data['queue-stalled-minutes'],
 			// Download
 			"download-queue-enabled" => array_boolval($data, 'download-queue-enabled'),
-			"download-queue-size"		=> $data['download-queue-size'],
+			"download-queue-size"    => $data['download-queue-size'],
 			// Seed
-			"seed-queue-enabled"		 => array_boolval($data, 'seed-queue-enabled'),
-			"seed-queue-size"				=> $data['seed-queue-size'],
+			"seed-queue-enabled"     => array_boolval($data, 'seed-queue-enabled'),
+			"seed-queue-size"        => $data['seed-queue-size'],
 		);
 		// Set configuration object
 		$xpath = "//services/transmissionbt/modules/queuing";
@@ -569,7 +580,7 @@ class TransmissionBTRpc extends OMVRpc {
 		if (FALSE === $xmlConfig->save())
 		{
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
-				$xmlConfig->getError());
+														 $xmlConfig->getError());
 		}
 		// Notify configuration changes
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
@@ -596,7 +607,7 @@ class TransmissionBTRpc extends OMVRpc {
 		if (is_null($object))
 		{
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-				$xpath);
+														 $xpath);
 		}
 		// Modify result data
 		// Peers
@@ -632,18 +643,18 @@ class TransmissionBTRpc extends OMVRpc {
 		$object = array(
 			// Peers
 			// Bindings
-			"bind-address-ipv4"				 => $data['bind-address-ipv4'],
-			"bind-address-ipv6"				 => $data['bind-address-ipv6'],
+			"bind-address-ipv4"         => $data['bind-address-ipv4'],
+			"bind-address-ipv6"         => $data['bind-address-ipv6'],
 			// Limits
-			"peer-limit-global"				 => $data['peer-limit-global'],
-			"peer-limit-per-torrent"		=> $data['peer-limit-per-torrent'],
-			"peer-socket-tos"					 => $data['peer-socket-tos'],
+			"peer-limit-global"         => $data['peer-limit-global'],
+			"peer-limit-per-torrent"    => $data['peer-limit-per-torrent'],
+			"peer-socket-tos"           => $data['peer-socket-tos'],
 			// Peer Ports
-			"peer-port"								 => $data['peer-port'],
-			"peer-port-random-high"		 => $data['peer-port-random-high'],
-			"peer-port-random-low"			=> $data['peer-port-random-low'],
+			"peer-port"                 => $data['peer-port'],
+			"peer-port-random-high"     => $data['peer-port-random-high'],
+			"peer-port-random-low"      => $data['peer-port-random-low'],
 			"peer-port-random-on-start" => array_boolval($data, 'peer-port-random-on-start'),
-			"port-forwarding-enabled"	 => array_boolval($data, 'port-forwarding-enabled'),
+			"port-forwarding-enabled"   => array_boolval($data, 'port-forwarding-enabled'),
 		);
 		// Set configuration object
 		$xpath = "//services/transmissionbt/modules/peer";
@@ -655,7 +666,7 @@ class TransmissionBTRpc extends OMVRpc {
 		if (FALSE === $xmlConfig->save())
 		{
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
-				$xmlConfig->getError());
+														 $xmlConfig->getError());
 		}
 		// Notify configuration changes
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
@@ -682,7 +693,7 @@ class TransmissionBTRpc extends OMVRpc {
 		if (is_null($object))
 		{
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-				$xpath);
+														 $xpath);
 		}
 		// Modify result data
 		// Scheduling
@@ -784,16 +795,16 @@ class TransmissionBTRpc extends OMVRpc {
 		}
 		// Prepare configuration data
 		$object = array(
-			'alt-speed-time-enabled'		 => array_boolval($data, 'alt-speed-time-enabled'),
-			'alt-speed-time-begin'			 => intval(($data['begin-hour'] * 60) + $data['begin-minute']),
-			'alt-speed-time-end'				 => intval(($data['end-hour'] * 60) + $data['end-minute']),
-			'alt-speed-time-day'				 => $data['alt-speed-time-day'],
+			'alt-speed-time-enabled'     => array_boolval($data, 'alt-speed-time-enabled'),
+			'alt-speed-time-begin'       => intval(($data['begin-hour'] * 60) + $data['begin-minute']),
+			'alt-speed-time-end'         => intval(($data['end-hour'] * 60) + $data['end-minute']),
+			'alt-speed-time-day'         => $data['alt-speed-time-day'],
 			// Idle
-			'idle-seeding-limit'				 => $data['idle-seeding-limit'],
+			'idle-seeding-limit'         => $data['idle-seeding-limit'],
 			'idle-seeding-limit-enabled' => array_boolval($data, 'idle-seeding-limit-enabled'),
 			// Ratio
-			'ratio-limit'								=> $data['ratio-limit'],
-			'ratio-limit-enabled'				=> array_boolval($data, 'ratio-limit-enabled'),
+			'ratio-limit'                => $data['ratio-limit'],
+			'ratio-limit-enabled'        => array_boolval($data, 'ratio-limit-enabled'),
 		);
 		// Set configuration object
 		$xpath = "//services/transmissionbt/modules/scheduling";
@@ -805,7 +816,7 @@ class TransmissionBTRpc extends OMVRpc {
 		if (FALSE === $xmlConfig->save())
 		{
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
-				$xmlConfig->getError());
+														 $xmlConfig->getError());
 		}
 		// Notify configuration changes
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
@@ -814,9 +825,19 @@ class TransmissionBTRpc extends OMVRpc {
 	}
 
 	/**
-	 * Get list of torrents
+	 * Get list of torrents.
+	 *
+	 * @param data An array containing the following fields:
+	 *   \em start The index where to start.
+	 *   \em limit The number of objects to process.
+	 *   \em sortfield The name of the column used to sort.
+	 *   \em sortdir The sort direction, ASC or DESC.
+	 *
+	 * @return An array containing the requested objects. The field \em total
+	 *   contains the total number of objects, \em data contains the object
+	 *   array. An exception will be thrown in case of an error.
 	 */
-	public function getList($start, $count, $sortField, $sortDir, $types)
+	public function getList($data)
 	{
 		// Check permissions
 		$this->validateSession();
@@ -827,33 +848,29 @@ class TransmissionBTRpc extends OMVRpc {
 		$this->commitSession();
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
-
 		$transmissionbt_rpc = $this->factoryTransmission();
-
-		$torrents = $transmissionbt_rpc->get(array(), array(
-																											 'id',
-																											 'name',
-																											 'status',
-																											 'totalSize',
-																											 'haveValid',
-																											 'percentDone',
-																											 'eta',
-																											 'peersConnected',
-																											 'peersSendingToUs',
-																											 'rateDownload',
-																											 'rateUpload',
-																											 'addedDate',
-																											 'doneDate',
-																											 'uploadRatio',
-																											 'queuePosition',
-																									)
+		$torrents           = $transmissionbt_rpc->get(array(), array(
+																																 'id',
+																																 'name',
+																																 'status',
+																																 'totalSize',
+																																 'haveValid',
+																																 'percentDone',
+																																 'eta',
+																																 'peersConnected',
+																																 'peersSendingToUs',
+																																 'rateDownload',
+																																 'rateUpload',
+																																 'addedDate',
+																																 'doneDate',
+																																 'uploadRatio',
+																																 'queuePosition'
+																														)
 		);
-
-		$torrents = $torrents['arguments']['torrents'];
-
+		$torrents           = $torrents['arguments']['torrents'];
 		// Filter result
-		return $this->applyFilter($torrents, $start, $count, $sortField, $sortDir);
-
+		return $this->applyFilter($torrents, $data['start'], $data['limit'],
+															$data['sortfield'], $data['sortdir']);
 	}
 
 	/**
@@ -872,7 +889,7 @@ class TransmissionBTRpc extends OMVRpc {
 		if (! is_uploaded_file($_FILES['file']['tmp_name']))
 		{
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-				"Invalid upload request");
+														 "Invalid upload request");
 		}
 		//$this->validateParams(__METHOD__, func_get_args());
 
@@ -945,9 +962,12 @@ class TransmissionBTRpc extends OMVRpc {
 	}
 
 	/**
-	 * Resume specific torrent
+	 * Resume specific torrent.
+	 *
+	 * @param data An array containing the following fields:
+	 *   \em id The ID of the torrent.
 	 */
-	public function resume($id)
+	public function resume($data)
 	{
 		// Check permissions
 		$this->validateSession();
@@ -958,18 +978,18 @@ class TransmissionBTRpc extends OMVRpc {
 		$this->commitSession();
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
-
 		$transmissionbt_rpc = $this->factoryTransmission();
-
-		$transmissionbt_rpc->start($id);
-
+		$transmissionbt_rpc->start($data['id']);
 		return 'success';
 	}
 
 	/**
-	 * Pause specific torrent
+	 * Pause specific torrent.
+	 *
+	 * @param data An array containing the following fields:
+	 *   \em id The ID of the torrent.
 	 */
-	public function pause($id)
+	public function pause($data)
 	{
 		// Check permissions
 		$this->validateSession();
@@ -980,11 +1000,8 @@ class TransmissionBTRpc extends OMVRpc {
 		$this->commitSession();
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
-
 		$transmissionbt_rpc = $this->factoryTransmission();
-
-		$transmissionbt_rpc->stop($id);
-
+		$transmissionbt_rpc->stop($data['id']);
 		return 'success';
 	}
 
@@ -1043,7 +1060,7 @@ class TransmissionBTRpc extends OMVRpc {
 		if (is_null($object))
 		{
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-				$xpath);
+														 $xpath);
 		}
 
 		$transmissionbt_rpc = new Transmission_RPC();

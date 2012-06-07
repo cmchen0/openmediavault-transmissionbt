@@ -20,6 +20,10 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 
-// require("js/omv/module/transmissionbt/navigation/panel.js")
+// require("js/omv/NavigationPanel.js")
 
-// require("js/omv/module/transmissionbt/admin/panel.js")
+OMV.NavigationPanelMgr.registerMenu("services", "transmissionbt", {
+	text    :_("BitTorrent"),
+	icon    :"images/transmissionbt.png",
+	position:20
+});

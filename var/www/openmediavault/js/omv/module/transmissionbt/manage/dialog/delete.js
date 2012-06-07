@@ -1,9 +1,10 @@
 /**
- * This file is part of OpenMediaVault.
+ * This file is part of OpenMediaVault TransmissionBT.
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Marcel Beck <marcel.beck@mbeck.org>
  * @copyright Copyright (c) 2011-2012 Marcel Beck
+ * @website   http://omv-plugins.org
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,6 +19,8 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
+
+
 // require("js/omv/Window.js")
 
 Ext.ns("OMV.TransmissionBT");
@@ -30,69 +33,77 @@ Ext.ns("OMV.TransmissionBT");
  * @config params Additional RPC method parameters.
  * @config waitMsg The displayed waiting message.
  */
-OMV.TransmissionBT.DeleteDialog = function(config) {
+OMV.TransmissionBT.DeleteDialog = function (config) {
 	var initialConfig = {
-		url: this.url,
-		title: "Delete torrent",
-		waitMsg: "Deleting torrent ...",
-		width: 450,
-		autoHeight: true,
-		layout: "fit",
-		modal: true,
-		border: false,
-		buttonAlign: "center",
-		buttons: [{
-			text: "OK",
-			handler: this.cbOkBtnHdl.createDelegate(this),
-			scope: this
-		},{
-			text: "Cancel",
-			handler: this.cbCancelBtnHdl.createDelegate(this),
-			scope: this
-		}]
+		url        :this.url,
+		title      :_("Delete torrent"),
+		waitMsg    :_("Deleting torrent ..."),
+		width      :450,
+		autoHeight :true,
+		layout     :"fit",
+		modal      :true,
+		border     :false,
+		buttonAlign:"center",
+		buttons    :[
+			{
+				text   :_("OK"),
+				handler:this.cbOkBtnHdl.createDelegate(this),
+				scope  :this
+			},
+			{
+				text   :_("Cancel"),
+				handler:this.cbCancelBtnHdl.createDelegate(this),
+				scope  :this
+			}
+		]
 	};
 	Ext.apply(initialConfig, config);
 	OMV.TransmissionBT.DeleteDialog.superclass.constructor.call(this, initialConfig);
 	this.addEvents(
-		/**
-		 * Fires after the installation has been finished successful.
-		 */
-		"success",
-		"before"
+					/**
+					 * Fires after the installation has been finished successful.
+					 */
+					"success",
+					"before"
 	);
 };
 Ext.extend(OMV.TransmissionBT.DeleteDialog, OMV.Window, {
-	initComponent : function() {
+	initComponent:function () {
 		this.form = new Ext.form.FormPanel({
-			frame: true,
-			border: false,
-			layout: "form",
-			defaults: {
-				anchor: "100%",
-				labelSeparator: ""
+			frame     :true,
+			border    :false,
+			layout    :"form",
+			defaults  :{
+				anchor        :"100%",
+				labelSeparator:""
 			},
-			autoHeight: true,
-			fileUpload: true,
-			items: [{
-				xtype: "hidden",
-				name: "service",
-				value: this.service
-			},{
-				xtype: "hidden",
-				name: "method",
-				value: this.method
-			},{
-				xtype: "hidden",
-				name: "params",
-				value: this.params
-			},{
-				xtype: "checkbox",
-				name: "delete-local-data",
-				id: "delete-local-data",
-				fieldLabel: "Delete Local Data",
-				checked: false,
-				inputValue: 1
-			}]
+			autoHeight:true,
+			fileUpload:true,
+			items     :[
+				{
+					xtype:"hidden",
+					name :"service",
+					value:this.service
+				},
+				{
+					xtype:"hidden",
+					name :"method",
+					value:this.method
+				},
+				{
+					xtype:"hidden",
+					name :"params",
+					value:this.params
+				},
+				{
+					xtype     :"checkbox",
+					name      :"delete-local-data",
+					id        :"delete-local-data",
+					fieldLabel:_("Delete Local Data"),
+					checked   :false,
+					inputValue:1
+				}
+			]
 		});
 		this.items = this.form;
 		OMV.TransmissionBT.DeleteDialog.superclass.initComponent.apply(this, arguments);
@@ -102,7 +113,7 @@ Ext.extend(OMV.TransmissionBT.DeleteDialog, OMV.Window, {
 	 * @method cbOkBtnHdl
 	 * Method that is called when the 'OK' button is pressed.
 	 */
-	cbOkBtnHdl : function() {
+	cbOkBtnHdl:function () {
 		var basicForm = this.form.getForm();
 		if (!basicForm.isValid()) {
 			return;
@@ -117,7 +128,7 @@ Ext.extend(OMV.TransmissionBT.DeleteDialog, OMV.Window, {
 	 * @method cbCancelBtnHdl
 	 * Method that is called when the 'Cancel' button is pressed.
 	 */
-	cbCancelBtnHdl : function() {
+	cbCancelBtnHdl:function () {
 		this.close();
 	}
 });
