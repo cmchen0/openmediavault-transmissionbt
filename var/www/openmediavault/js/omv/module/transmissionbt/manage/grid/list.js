@@ -280,8 +280,7 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Manage.TorrentListGrid, OMV.grid.T
 	},
 
 	initToolbar:function () {
-		var tbar = OMV.Module.Services.TransmissionBT.Manage.TorrentListGrid.superclass.initToolbar.apply(
-						this);
+		var tbar = OMV.Module.Services.TransmissionBT.Manage.TorrentListGrid.superclass.initToolbar.apply(this);
 		tbar.insert(0, {
 			id     :this.getId() + "-reload",
 			xtype  :"button",
