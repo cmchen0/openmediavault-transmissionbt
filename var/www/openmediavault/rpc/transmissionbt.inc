@@ -231,8 +231,7 @@ class TransmissionBTRpc extends OMVRpc {
 		$object = $xmlConfig->get($xpath);
 		if (is_null($object))
 		{
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-														 $xpath);
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED, $xpath);
 		}
 		// Modify result data
 		$object['enable']                         = boolval($object['enable']);
@@ -277,8 +276,7 @@ class TransmissionBTRpc extends OMVRpc {
 		$oldObject = $xmlConfig->get($xpath);
 		if (is_null($oldObject))
 		{
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-														 $xpath);
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED, $xpath);
 		}
 		// Prepare configuration data
 		$object = array(
@@ -314,13 +312,11 @@ class TransmissionBTRpc extends OMVRpc {
 		// Save configuration
 		if (FALSE === $xmlConfig->save())
 		{
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
-														 $xmlConfig->getError());
+			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED, $xmlConfig->getError());
 		}
 		// Notify configuration changes
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-												"org.openmediavault.services.transmissionbt", $object);
+		$dispatcher->notify(OMV_NOTIFY_MODIFY, "org.openmediavault.services.transmissionbt", $object);
 	}
 
 	/**
