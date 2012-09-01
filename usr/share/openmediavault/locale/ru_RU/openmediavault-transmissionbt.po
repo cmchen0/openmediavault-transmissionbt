@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Translators:
+# Translators:
 #   <arturmon82@gmail.com>, 2012.
 #   <ffrants@gmail.com>, 2012.
 # Ilya Durandin <ilya.durandin@gmail.com>, 2012.

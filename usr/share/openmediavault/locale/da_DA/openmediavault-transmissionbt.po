@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Translators:
+# Translators:
 # Stefan Thrane Overby <stoverby@gmail.com>, 2012.
 msgid ""
 msgstr ""

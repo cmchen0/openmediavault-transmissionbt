@@ -4,13 +4,15 @@
 # 
 # Translators:
 # Translators:
+# Translators:
+# Henrik Sandström <henrik.sandstroem@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: OMV Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-07 19:26+0200\n"
-"PO-Revision-Date: 2012-04-20 14:28+0000\n"
-"Last-Translator: Marcel Beck <fo3nik5@gmail.com>\n"
+"PO-Revision-Date: 2012-08-26 09:56+0000\n"
+"Last-Translator: Henrik Sandström <henrik.sandstroem@gmail.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/OMVPlugins/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,114 +21,114 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgid "Add Torrent by URL"
-msgstr ""
+msgstr "Lägg till Torrent genom URL"
 
 msgid "Add URL"
-msgstr ""
+msgstr "Lägg till URL"
 
 msgid "Adding Torrent ..."
-msgstr ""
+msgstr "Lägger till Torrent ..."
 
 msgid "Authentication"
-msgstr ""
+msgstr "Autentisering"
 
 msgid "Auto sync"
-msgstr ""
+msgstr "Auto synk"
 
 msgid "Bandwidth"
-msgstr ""
+msgstr "Bandbredd"
 
 msgid "Begin"
-msgstr ""
+msgstr "Börja"
 
 msgid "Bindings"
-msgstr ""
+msgstr "Bindningar"
 
 msgid "BitTorrent"
-msgstr ""
+msgstr "BitTorrent"
 
 msgid "Blocklists"
-msgstr ""
+msgstr "Blocklistor"
 
 msgid "Cache Size"
-msgstr ""
+msgstr "Cache-storlek"
 
 msgid "Cache size (in Mb) to reduce the number of disk reads and writes."
-msgstr ""
+msgstr "Cache-storlek (i Mb) för att reducera antalet läs- och skrivningar på disk."
 
 msgid "Cancel"
-msgstr ""
+msgstr "Avbryt"
 
 msgid "Checking files"
-msgstr ""
+msgstr "Kontrollerar filer"
 
 msgid "DL-Rate"
-msgstr ""
+msgstr "DL-hastighet"
 
 msgid "Daily"
-msgstr ""
+msgstr "Daglig"
 
 msgid "Date Added"
-msgstr ""
+msgstr "Datum tillagd"
 
 msgid "Date Done"
-msgstr ""
+msgstr "Datum klar"
 
 msgid "Days"
-msgstr ""
+msgstr "Dagar"
 
 msgid "Debug"
-msgstr ""
+msgstr "Debugga"
 
 msgid "Delete"
-msgstr ""
+msgstr "Radera"
 
 msgid "Delete Local Data"
-msgstr ""
+msgstr "Radera lokal data"
 
 msgid "Delete torrent"
-msgstr ""
+msgstr "Radera torrent"
 
 msgid "Delete torrents added from the watch directory."
-msgstr ""
+msgstr "Raderar torrent tillagd från den bevakade mappen."
 
 msgid "Deleting selected item(s)"
-msgstr ""
+msgstr "Tar bort valda föremål"
 
 msgid "Deleting torrent ..."
-msgstr ""
+msgstr "Tar bort torrent ..."
 
 msgid "Directory"
-msgstr ""
+msgstr "Katalog"
 
 msgid ""
 "Directory to keep downloads. If incomplete is enabled, only complete "
 "downloads will be stored here."
-msgstr ""
+msgstr "Katalog för att spara hämtningar. Om 'ej färdig' är aktiverad kommer bara fullständiga hämtningar sparas här."
 
 msgid "Directory to keep files in until torrent is complete."
-msgstr ""
+msgstr "Katalog för att lagra filer i till torrenten är fullständigt hämtad."
 
 msgid "Distributed hash table (DHT)."
-msgstr ""
+msgstr "Distribuerad hash-tabell (DHT)."
 
 msgid "Done"
-msgstr ""
+msgstr "Klar"
 
 msgid "Download"
-msgstr ""
+msgstr "Hämta"
 
 msgid "Download Queue"
-msgstr ""
+msgstr "Kö för hämtningar"
 
 msgid "Downloading"
-msgstr ""
+msgstr "Hämtar"
 
 msgid "ETA"
-msgstr ""
+msgstr "ETA"
 
 msgid "Enable"
-msgstr ""
+msgstr "Aktivera"
 
 msgid "Enable &micro;TP."
 msgstr ""
@@ -141,46 +143,46 @@ msgid "Enable PEX."
 msgstr ""
 
 msgid "Enable Turtle Mode."
-msgstr ""
+msgstr "Aktivera sköldpadda-läge."
 
 msgid "Enable Watch directory."
-msgstr ""
+msgstr "Aktivera 'Bevakad'-mapp"
 
 msgid "Enable download limit."
-msgstr ""
+msgstr "Aktivera begränsning för hämtningar"
 
 msgid "Enable incomplete directory."
-msgstr ""
+msgstr "Aktivera 'ej klar'-katalog."
 
 msgid "Enable paused torrent scraping."
-msgstr ""
+msgstr "Aktivera skrapning för pausad torrent"
 
 msgid "Enable port forwarding via NAT-PMP or UPnP."
-msgstr ""
+msgstr "Aktivera port-vidarebefodran via NAT-PMP eller UPnP."
 
 msgid "Enable upload limit."
-msgstr ""
+msgstr "Aktivera uppladdningsgräns."
 
 msgid "Encryption"
-msgstr ""
+msgstr "Kryptering"
 
 msgid "End"
-msgstr ""
+msgstr "Slut"
 
 msgid "Enter path to script."
-msgstr ""
+msgstr "Fyll i väg till skript."
 
 msgid "Error"
-msgstr ""
+msgstr "Fel"
 
 msgid "Fast"
-msgstr ""
+msgstr "Fort"
 
 msgid "File"
-msgstr ""
+msgstr "Fil"
 
 msgid "Files"
-msgstr ""
+msgstr "Filer"
 
 msgid "Files and Locations"
 msgstr ""
